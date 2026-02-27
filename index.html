@@ -1,2 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avuix© Games | Ghub</title>
+    <style>
+        :root {
+            --brand-color: #00ffcc;
+            --bg-dark: #0b0b0b;
+            --card-bg: #161616;
+        }
 
-        
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--brand-color);
+            letter-spacing: 2px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #111, var(--bg-dark));
+        }
+
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #222;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--brand-color);
+        }
+
+        .game-thumb {
+            width: 100%;
+            height: 150px;
+            background: #222;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AVUIX©</div>
+        <div style="color:#555">GHUB v1.0</div>
+    </nav>
+
+    <div class="hero">
+        <h1>Avuix© Games</h1>
+        <p style="color: #888;">The next generation of unblocked performance.</p>
+    </div>
+
+    <div class="grid-container">
+        <a href="#" class="game-card">
+            <div class="game-thumb" style="display:flex;align-items:center;justify-content:center;color:#00ffcc">SLOPE</div>
+            <h3>Slope</h3>
+        </a>
+    </div>
+
+    <footer>
+        AVUIX© 2026 | ALL SYSTEMS OPERATIONAL
+    </footer>
+
+</body>
+</html>
