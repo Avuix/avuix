@@ -4,107 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVUIX | Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-    <style> 
+    <style>
         :root {
             --purple: #bc13fe;
-            --dark-bg: #0a0510;
-            --glass: rgba(255, 255, 255, 0.05);
-            <style>
-    /* 1. Global Control Panel (The "Green Things") */
-    :root {
-        --purple: #bc13fe;
-        --dark-bg: #0a0510;
-        --glass: rgba(255, 255, 255, 0.05);
-        --border: rgba(188, 19, 254, 0.3);
-    }
+            --purple-glow: rgba(188, 19, 254, 0.5);
+            --dark-bg: #050208;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(188, 19, 254, 0.2);
+        }
 
-    /* 2. Page Setup */
-    body {
-        margin: 0;
-        background-color: var(--dark-bg);
-        background: radial-gradient(circle at top center, #1a0b2e 0%, #0a0510 100%);
-        color: white;
-        font-family: 'Inter', sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-    }
+        /* --- 1. THE SCANLINE EFFECT (PRO TOUCH) --- */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
 
-    /* 3. Navigation & Dropdown Logic (The "Nerd" Stuff) */
-    nav {
-        display: flex;
-        gap: 20px;
-        background: var(--glass);
-        padding: 10px 30px;
-        border-radius: 50px;
-        border: 1px solid var(--border);
-        backdrop-filter: blur(10px);
-        margin-top: 20px;
-    }
-
-    .dropdown {
-        position: relative; /* This keeps the menu attached to the 'HOME' text */
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none; /* This keeps it hidden until you hover */
-        position: absolute;
-        background: #1a0b2e;
-        min-width: 160px;
-        border: 1px solid var(--purple);
-        border-radius: 10px;
-        top: 100%;
-        left: 0;
-        z-index: 100;
-    }
-
-    /* This is the magic line that makes it pop up */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-</style>
-            
-    
-    
-    <body> {
+        body {
             margin: 0;
             padding: 0;
             background-color: var(--dark-bg);
-            background: radial-gradient(circle at center, #1a0b2e 0%, #0a0510 100%);
+            background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
             color: white;
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
+            overflow-x: hidden;
         }
 
-        /* --- TOP SECTION --- */
+        /* --- SYSTEM NOTICE --- */
+        .experimental-banner {
+            width: 100%;
+            background: rgba(188, 19, 254, 0.1);
+            border-bottom: 1px solid var(--purple);
+            padding: 10px 0;
+            font-size: 0.8rem;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .experimental-banner a {
+            color: var(--purple);
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        /* --- 2. THE LOGO PULSE --- */
         header {
-            margin-top: 10vh;
+            margin-top: 6vh;
+            text-align: center;
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 12px;
+            font-size: clamp(3rem, 10vw, 5rem); /* Responsive size */
+            letter-spacing: 15px;
             color: white;
             text-shadow: 0 0 20px var(--purple);
             margin: 0;
+            animation: logoPulse 4s infinite ease-in-out;
         }
 
-        /* --- MIDDLE SECTION --- */
-        .main-action {
+        @keyframes logoPulse {
+            0%, 100% { text-shadow: 0 0 20px var(--purple); transform: scale(1); }
+            50% { text-shadow: 0 0 40px var(--purple), 0 0 10px white; transform: scale(1.02); }
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            gap: 10px;
+            background: var(--glass);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        nav a, .dropbtn {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: white;
+            background: rgba(188, 19, 254, 0.2);
+            text-shadow: 0 0 10px var(--purple);
+        }
+
+        /* --- DROPDOWN NESTING --- */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #11081a;
+            min-width: 150px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            top: 120%;
+            left: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 0.7rem;
+            border-radius: 0;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .hero {
             flex: 1;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .start-btn {
@@ -112,84 +152,103 @@
             background: transparent;
             color: white;
             border: 2px solid var(--purple);
-            padding: 20px 40px;
-            font-size: 1.5rem;
+            padding: 18px 50px;
+            font-size: 1.2rem;
             text-decoration: none;
-            letter-spacing: 5px;
-            transition: 0.3s;
-            box-shadow: 0 0 15px var(--purple);
-            border-radius: 5px;
+            letter-spacing: 6px;
+            transition: 0.5s;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
         }
 
+        .start-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .start-btn:hover::after { left: 100%; }
         .start-btn:hover {
             background: var(--purple);
-            box-shadow: 0 0 40px var(--purple);
-            transform: scale(1.1);
+            box-shadow: 0 0 50px var(--purple);
+            transform: translateY(-3px);
         }
 
-        /* --- BOTTOM SECTION --- */
-        .info-container {
-            width: 90%;
-            max-width: 800px;
-            margin-bottom: 5vh;
+        /* --- INFO GRID --- */
+        .info-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            margin-bottom: 40px;
         }
 
         .card {
             background: var(--glass);
-            border: 1px solid rgba(188, 19, 254, 0.3);
-            padding: 20px;
+            border: 1px solid var(--border);
+            padding: 25px;
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            text-align: left;
+            transition: 0.3s;
         }
 
-        .card h2 {
-            font-size: 0.8rem;
-            color: var(--purple);
-            letter-spacing: 2px;
-            margin-top: 0;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: #ccc;
-            line-height: 1.5;
-        }
+        .card:hover { border-color: var(--purple); background: rgba(188, 19, 254, 0.05); }
+        .card h2 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--purple); margin: 0 0 10px 0; letter-spacing: 2px; }
+        .card p { font-size: 0.9rem; color: #888; margin: 0; line-height: 1.6; }
 
         footer {
-            margin-bottom: 20px;
-            font-size: 0.7rem;
-            opacity: 0.5;
-            letter-spacing: 2px;
+            padding: 20px;
+            font-size: 0.65rem;
+            color: #444;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 class="logo">AVUIX</h1>
-    </header>
-
-    <div class="main-action">
-        <a href="hub.html" class="start-btn">PRESS START!</a>
+    <div class="experimental-banner">
+        ⚠️ SYSTEM STATUS: EXPERIMENTAL. ACCESS FULL BUILD AT 
+        <a href="https://sites.google.com/view/avuix/home">GOOGLE SITES</a>
     </div>
 
-    <div class="info-container">
+    <header>
+        <h1 class="logo">AVUIX</h1>
+        
+        <nav>
+            <div class="dropdown">
+                <span class="dropbtn">HOME ▾</span>
+                <div class="dropdown-content">
+                    <a href="about.html">ABOUT US</a>
+                    <a href="status.html">SYSTEM STATUS</a>
+                </div>
+            </div>
+            <a href="hub.html">GAMES</a>
+            <a href="https://sites.google.com/view/avuix/home">MAIN HUB</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <a href="hub.html" class="start-btn">PRESS START</a>
+    </div>
+
+    <div class="info-grid">
         <div class="card">
-            <h2>WHAT IS AVUIX?</h2>
-            <p>A high-performance gaming hub designed for speed, privacy, and unrestricted access to the web's best titles.</p>
+            <h2>AVUIX CORE</h2>
+            <p>A precision-engineered gaming environment. Zero bloat, maximum performance, and curated titles for the modern player.</p>
         </div>
         <div class="card">
-            <h2>ANNOUNCEMENTS</h2>
-            <p>V1.0 Launching soon. Currently optimizing assets and finalizing the game library database</p>
-            <p> For now this Github Pages is expiermental instead use our google sites which is currently in full development and is what we tailor in</p>
+            <h2>TRANSMISSION</h2>
+            <p>V1.0 rollout in progress. We are currently migrating the game database and hardening the GitHub Pages infrastructure.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX PROJECT | EST. 2026
+        &copy; 2026 AVUIX TERMINAL // ALL RIGHTS RESERVED
     </footer>
 
 </body>
