@@ -4,112 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
-    <title>Avuix© Games | Ghub</title>
+    <title>Avuix© | Global Hub</title>
     <style>
         :root {
-            --brand-color: #00ffcc;
-            --bg-dark: #0b0b0b;
-            --card-bg: #161616;
+            --primary: #bc13fe; 
+            --secondary: #7a10ff;
+            --bg-dark: #050208;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(188, 19, 254, 0.3);
         }
-
-        
 
         body {
             background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 80%);
+            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
-            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* Nav Bar - Professional Glassmorphism */
         nav {
-            background: rgba(20, 20, 20, 0.95);
-            padding: 15px 5%;
+            backdrop-filter: blur(10px);
+            background: rgba(5, 2, 8, 0.8);
+            padding: 20px 5%;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #222;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--brand-color);
-            letter-spacing: 2px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, #111, var(--bg-dark));
-        }
-
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px;
-        }
-
-        .game-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid #222;
-            text-align: center;
-            text-decoration: none;
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 8px;
             color: white;
+            text-transform: uppercase;
         }
 
-        .game-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--brand-color);
-        }
-
-        .game-thumb {
-            width: 100%;
-            height: 150px;
-            background: #222;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #444;
-            font-size: 12px;
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">AVUIX©</div>
-        <div style="color:#555">GHUB v1.0</div>
-    </nav>
-
-    <div class="hero">
-        <h1>Avuix© Games</h1>
-        <p style="color: #888;">The next generation of unblocked performance.</p>
-    </div>
-
-    <div class="grid-container">
-        <a href="#" class="game-card">
-            <div class="game-thumb" style="display:flex;align-items:center;justify-content:center;color:#00ffcc">SLOPE</div>
-            <h3>Slope</h3>
-        </a>
-    </div>
-
-    <footer>
-        AVUIX© 2026 | ALL SYSTEMS OPERATIONAL
-    </footer>
-
-</body>
-</html>
-
-<link rel="icon" type="image/png" href="favicon.png">
+        .logo-text span {
+            color: var(--primary
