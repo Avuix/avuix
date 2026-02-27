@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
                         linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 9999;
+            z-index: 99;
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
         }
@@ -93,7 +93,8 @@
             backdrop-filter: blur(15px);
             margin-top: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative; /* Essential for dropdown alignment */
+            position: relative;
+            z-index: 200;
         }
 
         nav a, .dropbtn {
@@ -106,6 +107,7 @@
             border-radius: 25px;
             transition: 0.4s;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         nav a:hover, .dropdown:hover .dropbtn {
@@ -114,8 +116,11 @@
             text-shadow: 0 0 10px var(--purple);
         }
 
-        /* --- DROPDOWN LOGIC --- */
-        .dropdown { position: relative; }
+        /* --- DROPDOWN LOGIC (FIXED) --- */
+        .dropdown { 
+            position: relative;
+            display: inline-block;
+        }
 
         .dropdown-content {
             display: none;
@@ -124,17 +129,26 @@
             min-width: 160px;
             border: 1px solid var(--purple);
             border-radius: 12px;
-            /* Fix: No gap between Nav and Menu */
-            top: 100%; 
+            top: calc(100% + 8px);
             left: 0;
-            padding-top: 5px; /* Invisible bridge */
+            padding: 8px 0;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.8);
             z-index: 1000;
         }
 
+        /* FIX: Create invisible bridge to prevent gap issues */
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+
         .dropdown:hover .dropdown-content { 
-            display: block; 
+            display: block;
         }
 
         .dropdown-content a {
@@ -143,6 +157,13 @@
             font-size: 0.7rem;
             border-radius: 0;
             text-align: left;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(188, 19, 254, 0.3);
+            text-shadow: 0 0 10px var(--purple);
         }
 
         /* --- MAIN BUTTON --- */
@@ -166,6 +187,8 @@
             transition: 0.5s;
             border-radius: 4px;
             box-shadow: 0 0 15px var(--purple);
+            display: inline-block;
+            cursor: pointer;
         }
 
         .start-btn:hover {
@@ -192,14 +215,41 @@
             text-align: left;
         }
 
-        .card h2 { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--purple); margin: 0 0 10px 0; letter-spacing: 2px; }
-        .card p { font-size: 0.9rem; color: #888; margin: 0; line-height: 1.6; }
+        .card h2 { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 0.8rem; 
+            color: var(--purple); 
+            margin: 0 0 10px 0; 
+            letter-spacing: 2px; 
+        }
+
+        .card p { 
+            font-size: 0.9rem; 
+            color: #888; 
+            margin: 0; 
+            line-height: 1.6; 
+        }
 
         footer {
             padding: 20px;
             font-size: 0.65rem;
             color: #444;
             letter-spacing: 4px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .dropdown-content {
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 200px;
+            }
         }
     </style>
 </head>
