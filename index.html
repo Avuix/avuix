@@ -5,58 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avuix© Games | Ghub</title>
     <style>
-        /* Modern Dark Theme */
+        :root {
+            --brand-color: #00ffcc;
+            --bg-dark: #0b0b0b;
+            --card-bg: #161616;
+        }
+
         body {
-            background-color: #0b0b0b;
-            color: #e0e0e0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
+            padding: 0;
+        }
+
+        /* Top Navigation Bar - Just like Google Sites */
+        nav {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 15px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* The Main Hub Card */
-        .container {
-            text-align: center;
-            padding: 50px;
-            background: #141414;
-            border: 1px solid #222;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-            max-width: 450px;
-            width: 90%;
-        }
-
-        /* Avuix Official Branding */
-        h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            letter-spacing: 5px;
-            color: #00ffcc;
-            text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
-        }
-
-        .subtitle {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            margin-bottom: 35px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 300;
-        }
-
-        /* The Launcher Button */
-        .btn {
-            display: inline-block;
-            background-color: #00ffcc;
-            color: #000;
-            padding: 18px 45px;
-            text-decoration: none;
-            border-radius: 10px;
+        .logo {
+            font-size: 24px;
             font-weight: 800;
-            font-size: 15px;
-            transition: all 0.3s cubic-bezier(0
+            color: var(--brand-color);
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #111, var(--bg-dark));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        /* The Game Grid */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Game Card */
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #222;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .game-
