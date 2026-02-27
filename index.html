@@ -7,11 +7,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
-    <style>
+    <style> 
         :root {
             --purple: #bc13fe;
             --dark-bg: #0a0510;
             --glass: rgba(255, 255, 255, 0.05);
+            <style>
+    /* 1. Global Control Panel (The "Green Things") */
+    :root {
+        --purple: #bc13fe;
+        --dark-bg: #0a0510;
+        --glass: rgba(255, 255, 255, 0.05);
+        --border: rgba(188, 19, 254, 0.3);
+    }
+
+    /* 2. Page Setup */
+    body {
+        margin: 0;
+        background-color: var(--dark-bg);
+        background: radial-gradient(circle at top center, #1a0b2e 0%, #0a0510 100%);
+        color: white;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    /* 3. Navigation & Dropdown Logic (The "Nerd" Stuff) */
+    nav {
+        display: flex;
+        gap: 20px;
+        background: var(--glass);
+        padding: 10px 30px;
+        border-radius: 50px;
+        border: 1px solid var(--border);
+        backdrop-filter: blur(10px);
+        margin-top: 20px;
+    }
+
+    .dropdown {
+        position: relative; /* This keeps the menu attached to the 'HOME' text */
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none; /* This keeps it hidden until you hover */
+        position: absolute;
+        background: #1a0b2e;
+        min-width: 160px;
+        border: 1px solid var(--purple);
+        border-radius: 10px;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+    }
+
+    /* This is the magic line that makes it pop up */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+            
         }
 
         body {
