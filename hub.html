@@ -11,29 +11,13 @@
     <style>
         :root {
             --purple: #bc13fe;
-            --purple-glow: rgba(188, 19, 254, 0.5);
             --dark-bg: #050208;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(188, 19, 254, 0.2);
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Scanline Overlay Effect */
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 99;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --border: rgba(188, 19, 254, 0.3);
         }
 
         body {
             margin: 0;
-            background-color: var(--dark-bg);
             background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
             color: white;
             font-family: 'Inter', sans-serif;
@@ -41,9 +25,9 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
+        /* BANNER */
         .experimental-banner {
             width: 100%;
             background: rgba(188, 19, 254, 0.1);
@@ -52,17 +36,111 @@
             font-size: 0.8rem;
             text-align: center;
             backdrop-filter: blur(5px);
-            z-index: 100;
         }
 
-        .experimental-banner a {
-            color: var(--purple);
-            font-weight: bold;
-            text-decoration: none;
-        }
-
+        /* NAV */
         nav {
             display: flex;
-            gap: 10px;
-            background: var(--glass);
-            padding: 8px 20px;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            margin-top: 20px;
+        }
+        nav a { color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem; letter-spacing: 1px; }
+
+        header { text-align: center; padding: 40px 0; }
+        h1 { font-family: 'Orbitron'; font-size: 2.5rem; letter-spacing: 5px; text-shadow: 0 0 15px var(--purple); margin: 0; }
+
+        /* THE GRID - This is the part that was likely blank */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1100px;
+            padding: 20px;
+            min-height: 400px; /* Forces the area to exist even if empty */
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border); /* Thickened border so you can see it */
+            border-radius: 15px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .game-card:hover {
+            border-color: var(--purple);
+            background: rgba(188, 19, 254, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .game-title { font-family: 'Orbitron'; font-size: 0.8rem; color: white; }
+        .status-tag { position: absolute; top: 10px; right: 10px; font-size: 0.6rem; background: var(--purple); padding: 2px 8px; border-radius: 4px; font-weight: bold;}
+
+        /* OVERLAY */
+        #game-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 9999; }
+        .close-bar { background: #11081a; padding: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--purple); }
+        iframe { width: 100%; height: calc(100% - 60px); border: none; }
+    </style>
+</head>
+<body>
+
+    <div class="experimental-banner">⚠️ EXPERIMENTAL HUB ACTIVE</div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="hub.html" style="color: var(--purple);">GAMES</a>
+        <a href="status.html">STATUS</a>
+    </nav>
+
+    <header>
+        <h1>GAME VAULT</h1>
+    </header>
+
+    <div class="game-grid">
+        <div class="game-card" onclick="openGame('clFNAF.html')">
+            <span class="status-tag" style="background: red;">HORROR</span>
+            <div class="game-title">FNAF 1</div>
+        </div>
+
+        <div class="game-card" onclick="openGame('slope-plus.html')">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">SLOPE PLUS</div>
+        </div>
+
+        <div class="game-card"><div class="game-title">ENCRYPTED</div></div>
+        <div class="game-card"><div class="game-title">ENCRYPTED</div></div>
+    </div>
+
+    <div id="game-overlay">
+        <div class="close-bar">
+            <span style="color: var(--purple); font-family: 'Orbitron';">AVUIX SYSTEM // ACTIVE</span>
+            <button onclick="closeGame()" style="background: var(--purple); color: white; border: none; cursor: pointer; padding: 5px 15px; font-family: 'Orbitron';">EXIT [X]</button>
+        </div>
+        <iframe id="game-frame" src=""></iframe>
+    </div>
+
+    <script>
+        function openGame(url) {
+            document.getElementById('game-frame').src = url;
+            document.getElementById('game-overlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeGame() {
+            document.getElementById('game-overlay').style.display = 'none';
+            document.getElementById('game-frame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
