@@ -11,7 +11,7 @@ AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and
 [🌐 View Live Github Site](https://avuix.github.io/avuix/) ⬅️Github
 [🌐 View Live Google Site](https://www.avuix.games/) ⬅️Google Sites
 
-------------------d------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🚀 Features
 - **Neon UI Architecture:** A custom CSS framework utilizing radial gradients and glow effects.
