@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVUIX | System Status</title>
-  
     <link rel="icon" type="image/png" href="../images/favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
+    <div class="experimental-banner">
+        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
+    </div>
+
     <header>
         <h1 class="logo">SYSTEM STATUS</h1>
         <nav>
+            <div class="dropdown">
+                <span class="dropbtn">HOME ▾</span>
+                <div class="dropdown-content">
+                    <a href="../index.html">MAIN</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="status.html">SYSTEM STATUS</a>
+                </div>
+            </div>
             <a href="../index.html">HOME</a>
             <a href="about.html">ABOUT</a>
             <a href="hub.html">GAMES</a>
@@ -24,8 +33,61 @@
     </header>
 
     <div class="container">
+        
         <div class="section">
-            <h2>CORE TERMINALS</h2>
-            <p>Main Frame: <span style="color: #00ff41; font-weight: bold;">OPERATIONAL</span></p>
-            <p>CSS Architecture: <span style="color: #00ff41; font-weight: bold;">MIGRATED</span></p>
-            <p>Database: <span style="color: #bc13fe; font-weight: bold;">SYNCING...</span></p>
+            <h2>OPERATIONAL STATUS</h2>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <div>
+                    <div style="font-family: 'Orbitron', sans-serif; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">ALL SYSTEMS OPERATIONAL</div>
+                    <div style="font-size: 0.75rem; color: #888; margin-top: 5px;">Last updated: 2026-03-06 12:00:00 (UTC)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>SERVICE DIAGNOSTICS</h2>
+            <div style="display: grid; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px;">GAME VAULT</span>
+                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px;">API GATEWAY</span>
+                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px;">DATABASE CLUSTER</span>
+                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px;">CDN INFRASTRUCTURE</span>
+                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px;">SECURITY PROTOCOLS</span>
+                    <span style="color: var(--green); font-weight: bold;">● ACTIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>INCIDENT LOG</h2>
+            <div style="padding: 20px; background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 12px; text-align: center;">
+                <div style="font-family: 'Orbitron', sans-serif; color: var(--green); font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">✓ NO ACTIVE INCIDENTS</div>
+                <div style="font-size: 0.8rem; color: #888; margin-top: 8px;">All services running nominally</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html" class="back-btn">RETURN TO CORE</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 AVUIX TERMINAL // STATUS_V2.0
+    </footer>
+
+</body>
+</html>
