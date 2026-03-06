@@ -5,6 +5,10 @@
     --glass: rgba(255, 255, 255, 0.03);
     --border: rgba(188, 19, 254, 0.2);
     --green: #00ff88;
+    --red: #ff3333;
+    --orange: #ff8c00;
+    --yellow: #ffcc00;
+    --blue: #00ccff;
 }
 
 body::before {
@@ -100,6 +104,8 @@ nav {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(188, 19, 254, 0.1);
     position: relative;
     z-index: 200;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav a, .dropbtn {
@@ -173,6 +179,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     white-space: nowrap;
     letter-spacing: 1px;
     border-left: 3px solid transparent;
+    text-transform: uppercase;
 }
 
 .dropdown-content a:hover {
@@ -261,6 +268,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(188, 19, 254, 0.1), transparent);
     transition: left 0.5s ease;
+    z-index: 0;
 }
 
 .game-card:hover::before {
@@ -284,6 +292,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
     z-index: 2;
     text-transform: uppercase;
+    position: relative;
 }
 
 .status-tag {
@@ -291,19 +300,51 @@ nav a:hover, .dropdown:hover .dropbtn {
     top: 12px;
     right: 12px;
     font-size: 0.6rem;
-    background: var(--purple);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 6px;
     font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.status-tag.pending {
-    background: rgba(255, 204, 0, 0.8);
+.status-tag.horror {
+    background: linear-gradient(135deg, #ff3333 0%, #cc0000 100%);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+}
+
+.status-tag.action {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+}
+
+.status-tag.puzzle {
+    background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+}
+
+.status-tag.adventure {
+    background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
     color: #050208;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+.status-tag.strategy {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    color: #050208;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+}
+
+.status-tag.simulation {
+    background: linear-gradient(135deg, #bc13fe 0%, #8800cc 100%);
+    color: white;
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.6);
 }
 
 .start-btn, .back-btn {
@@ -427,6 +468,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     background: var(--green);
     animation: pulse 2s infinite;
     box-shadow: 0 0 10px var(--green);
+    flex-shrink: 0;
 }
 
 @keyframes pulse {
@@ -447,6 +489,95 @@ footer {
     letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
+    margin-top: 40px;
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-category {
+    margin-bottom: 50px;
+}
+
+.category-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: var(--purple);
+    letter-spacing: 2px;
+    margin: 30px 0 20px 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(188, 19, 254, 0.2);
+}
+
+.proxy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.proxy-btn {
+    background: linear-gradient(135deg, rgba(188, 19, 254, 0.1) 0%, rgba(188, 19, 254, 0.05) 100%);
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    color: var(--purple);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.proxy-btn:hover {
+    background: rgba(188, 19, 254, 0.2);
+    border-color: var(--purple);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+    transform: translateY(-2px);
+}
+
+.status-list {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.status-item:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.4);
+}
+
+.status-item-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.status-item-status {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
@@ -454,6 +585,7 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
         padding: 8px 15px;
+        gap: 8px;
     }
 
     nav a, .dropbtn {
@@ -480,13 +612,13 @@ footer {
         padding: 15px 40px;
         font-size: 1rem;
     }
-}
 
-@media (max-width: 480px) {
     .logo {
         font-size: clamp(2rem, 8vw, 3rem);
     }
+}
 
+@media (max-width: 480px) {
     nav a, .dropbtn {
         font-size: 0.65rem;
         padding: 7px 10px;
@@ -510,5 +642,9 @@ footer {
         padding: 14px 35px;
         font-size: 0.9rem;
         letter-spacing: 1px;
+    }
+
+    .section h2 {
+        font-size: 1rem;
     }
 }
