@@ -4,52 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AVUIX | Games Hub</title>
-  
     <link rel="icon" type="image/png" href="../images/favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
+    <div class="experimental-banner">
+        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
+    </div>
+
     <header>
-        <h1 class="logo">GAMES HUB</h1>
+        <h1 class="logo">GAME VAULT</h1>
         <nav>
+            <div class="dropdown">
+                <span class="dropbtn">HOME ▾</span>
+                <div class="dropdown-content">
+                    <a href="../index.html">MAIN</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="status.html">SYSTEM STATUS</a>
+                </div>
+            </div>
             <a href="../index.html">HOME</a>
             <a href="about.html">ABOUT</a>
             <a href="hub.html" style="color: white; text-shadow: 0 0 10px var(--purple);">GAMES</a>
-            
-            <div class="dropdown">
-                <span class="dropbtn">PROXIES ▾</span>
-                <div class="dropdown-content">
-                    <a href="https://kazwire.com" target="_blank">KAZWIRE <span class="dot">●</span></a>
-                    <a href="https://froggie.xyz" target="_blank">FROGGIE <span class="dot">●</span></a>
-                    <a href="proxies.html">ALL TERMINALS</a>
-                </div>
-            </div>
+            <a href="status.html">STATUS</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="section">
-            <h2>FEATURED TITLES</h2>
-            <p>Select a terminal to begin execution. All games are optimized for browser performance.</p>
-            
-            <div style="margin-top: 20px;">
-                <a href="../games/fnaf2/index.html" class="back-btn" style="display: block; text-align: center; margin-bottom: 10px;">FIVE NIGHTS AT FREDDY'S 2</a>
-                <a href="../games/fnaf3/index.html" class="back-btn" style="display: block; text-align: center;">FIVE NIGHTS AT FREDDY'S 3</a>
-            </div>
+    <div style="text-align: center; margin: 40px 0 20px;">
+        <h2 style="font-family: 'Orbitron', sans-serif; color: var(--purple); letter-spacing: 2px; font-size: 1.2rem; text-transform: uppercase;">Featured Titles</h2>
+    </div>
+
+    <div class="game-grid">
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FIVE NIGHTS AT FREDDY'S 1</div>
         </div>
 
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FIVE NIGHTS AT FREDDY'S 2</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FIVE NIGHTS AT FREDDY'S 3</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FIVE NIGHTS AT FREDDY'S 4</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FREDDY FAZBEAR'S PIZZERIA SIMULATOR</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">ULTIMATE CUSTOM NIGHT</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag">LIVE</span>
+            <div class="game-title">FIVE NIGHTS AT FREDDY'S WORLD</div>
+        </div>
+
+        <div class="game-card">
+            <span class="status-tag pending">PENDING</span>
+            <div class="game-title">MORE TITLES INCOMING</div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
         <div class="section">
             <h2>SYSTEM NOTICE</h2>
-            <p>More titles are being migrated to the new folder structure. Check back for updates shortly.</p>
+            <p>All games are fully optimized for browser performance. Launch any title to begin execution. Contact support for any issues or recommendations.</p>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="../index.html" class="back-btn">RETURN TO CORE</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // HUB_V1.0
+        &copy; 2026 AVUIX TERMINAL // HUB_V2.0
     </footer>
 
 </body>
