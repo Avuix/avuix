@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVUIX | PROXY TERMINAL</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ff41; /* Classic Matrix/Terminal Green */
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            margin-top: 50px;
+            text-align: center;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        /* The Proxy Search Bar - Just for Look (or we can link it later) */
+        .search-container {
+            margin: 30px 0;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            background: #111;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            outline: none;
+            box-shadow: 0 0 5px #00ff41;
+        }
+
+        /* The Grid for your Proxy Links */
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .proxy-card {
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .proxy-card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 0 15px #00ff41;
+            transform: translateY(-5px);
+        }
+
+        .proxy-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .back-btn {
+            margin-top: 40px;
+            color: #00ff41;
+            text-decoration: none;
+            border: 1px solid #00ff41;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>[ AVUIX PROXY TERMINAL ]</h1>
+        <p>Bypassing Restrictions... Status: SECURE</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Enter URL or Search Query..." id="proxySearch">
+    </div>
+
+    <div class="proxy-grid">
+        <div class="proxy-card" onclick="window.open('https://kazwire.com', '_blank')">
+            <div class="proxy-title">KAZWIRE</div>
+            <div class="status">ENCRYPTED CONNECTION</div>
+        </div>
+
+        <div class="proxy-card" onclick="window.open('https://full.boxathome.net', '_blank')">
+            <div class="proxy-title">FROGIE'S ARCADE</div>
+            <div class="status">ENCRYPTED CONNECTION</div>
+        </div>
+        
+        </div>
+
+    <a href="hub.html" class="back-btn">RETURN TO HUB</a>
+
+</body>
+</html>
