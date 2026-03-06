@@ -3,77 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Proxies</title>
+    <title>AVUIX | Proxies</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
+        .proxy-dropdown {
+            margin: 30px 0;
         }
-        h1 {
-            color: #333;
-            text-align: center;
+
+        .proxy-grid {
+            display: grid;
+            gap: 15px;
+            margin: 25px 0;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
+
+        .proxy-btn {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.1) 0%, rgba(188, 19, 254, 0.05) 100%);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            color: var(--purple);
+            padding: 15px 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
+
+        .proxy-btn:hover {
+            background: rgba(188, 19, 254, 0.2);
+            border-color: var(--purple);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+            transform: translateY(-2px);
         }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
-        .dropdown:hover .dropdown-content {
-            display: block;
+
+        .status-list {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
         }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 8px;
         }
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
+
+        .status-item-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+
+        .status-item-status {
+            color: var(--green);
+            font-weight: bold;
+            font-size: 0.75rem;
         }
     </style>
 </head>
 <body>
+
+    <div class="experimental-banner">
+        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
+    </div>
+
+    <header>
+        <h1 class="logo">PROXIES</h1>
+        <nav>
+            <div class="dropdown">
+                <span class="dropbtn">HOME ▾</span>
+                <div class="dropdown-content">
+                    <a href="../index.html">MAIN</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="status.html">SYSTEM STATUS</a>
+                </div>
+            </div>
+            <a href="../index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="hub.html">GAMES</a>
+            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--purple);">PROXIES</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <h1>Proxy List</h1>
-        <div class="dropdown">
-            <button>Dropdown</button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+        
+        <div class="section">
+            <h2>EXTERNAL TERMINALS</h2>
+            <p>Access unrestricted browsing through multiple proxy terminals. All proxies are monitored and maintained by the AVUIX collective for optimal performance.</p>
+        </div>
+
+        <div class="section">
+            <h2>AVAILABLE PROXIES</h2>
+            <div class="proxy-grid">
+                <button class="proxy-btn" onclick="openProxy('https://kazwire.com/', 'about:blank')">KAZWIRE</button>
+                <button class="proxy-btn" onclick="openProxy('https://full.boxathome.net/', 'about:blank')">BOX@HOME</button>
+                <button class="proxy-btn" onclick="openProxy('https://daydreamx.pro/', 'about:blank')">DAYDREAMX</button>
+                <button class="proxy-btn" onclick="openProxy('https://holyunblocker.org/', 'about:blank')">HOLY UNBLOCKER</button>
+                <button class="proxy-btn" onclick="openProxy('https://incog.works/', 'about:blank')">INCOG</button>
+                <button class="proxy-btn" onclick="openProxy('https://definitelyscience.com/', 'about:blank')">DEFINITELY SCIENCE</button>
+                <button class="proxy-btn" onclick="openProxy('https://truffled.lol/', 'about:blank')">TRUFFLED</button>
+                <button class="proxy-btn" onclick="openProxy('https://helios-browser.vercel.app/', 'about:blank')">HELIOS</button>
+                <button class="proxy-btn" onclick="openProxy('https://nano-proxy.github.io/', 'about:blank')">NANO PROXY</button>
             </div>
         </div>
-        <p>Here is where the list of proxies will be displayed.</p>
+
+        <div class="section">
+            <h2>TERMINAL STATUS</h2>
+            <div class="status-list">
+                <div class="status-item">
+                    <span class="status-item-name">KAZWIRE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">BOX@HOME</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DAYDREAMX</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HOLY UNBLOCKER</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">INCOG</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DEFINITELY SCIENCE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">TRUFFLED</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HELIOS</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">NANO PROXY</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html" class="back-btn">RETURN TO CORE</a>
+        </div>
+
     </div>
+
     <footer>
-        <p>&copy; 2026 Avuix</p>
+        &copy; 2026 AVUIX TERMINAL // PROXIES_V2.0
     </footer>
+
+    <script>
+        function openProxy(url, referrer) {
+            // Open in new tab with about:blank referrer for privacy
+            const win = window.open(referrer, '_blank');
+            if (win) {
+                win.location.href = url;
+            } else {
+                // Fallback if popup is blocked
+                alert('Popup blocked! Please allow popups to access proxies.');
+            }
+        }
+    </script>
+
 </body>
 </html>
