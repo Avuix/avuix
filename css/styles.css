@@ -1,0 +1,99 @@
+:root {
+    --purple: #bc13fe;
+    --purple-glow: rgba(188, 19, 254, 0.5);
+    --dark-bg: #050208;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(188, 19, 254, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* NAVIGATION STYLES */
+nav {
+    display: flex;
+    gap: 10px;
+    background: var(--glass);
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+    margin-top: 30px;
+}
+
+nav a, .dropbtn {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif; /* THIS FIXES THE FONT */
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: 0.4s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    color: white;
+    background: rgba(188, 19, 254, 0.2);
+    text-shadow: 0 0 10px var(--purple);
+}
+
+/* DROPDOWN LOGIC */
+.dropdown { position: relative; display: inline-block; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #11081a;
+    min-width: 180px;
+    border: 1px solid var(--purple);
+    border-radius: 12px;
+    top: calc(100% + 10px);
+    left: 0;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.dot { color: #00ff41; margin-left: 10px; font-size: 10px; }
+
+/* LOGO & HERO */
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 15px;
+    text-shadow: 0 0 20px var(--purple);
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.start-btn {
+    font-family: 'Orbitron', sans-serif;
+    border: 2px solid var(--purple);
+    padding: 18px 50px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 15px var(--purple);
+    margin-top: 50px;
+}
