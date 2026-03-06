@@ -3,144 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | Game Vault</title>
-   
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>AVUIX | Games Hub</title>
+  
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --purple: #bc13fe;
-            --dark-bg: #050208;
-            --card-bg: rgba(255, 255, 255, 0.07);
-            --border: rgba(188, 19, 254, 0.3);
-        }
-
-        body {
-            margin: 0;
-            background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* BANNER */
-        .experimental-banner {
-            width: 100%;
-            background: rgba(188, 19, 254, 0.1);
-            border-bottom: 1px solid var(--purple);
-            padding: 10px 0;
-            font-size: 0.8rem;
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-
-        /* NAV */
-        nav {
-            display: flex;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            margin-top: 20px;
-        }
-        nav a { color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 0.7rem; letter-spacing: 1px; }
-
-        header { text-align: center; padding: 40px 0; }
-        h1 { font-family: 'Orbitron'; font-size: 2.5rem; letter-spacing: 5px; text-shadow: 0 0 15px var(--purple); margin: 0; }
-
-        /* THE GRID - This is the part that was likely blank */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1100px;
-            padding: 20px;
-            min-height: 400px; /* Forces the area to exist even if empty */
-        }
-
-        .game-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border); /* Thickened border so you can see it */
-            border-radius: 15px;
-            height: 160px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .game-card:hover {
-            border-color: var(--purple);
-            background: rgba(188, 19, 254, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .game-title { font-family: 'Orbitron'; font-size: 0.8rem; color: white; }
-        .status-tag { position: absolute; top: 10px; right: 10px; font-size: 0.6rem; background: var(--purple); padding: 2px 8px; border-radius: 4px; font-weight: bold;}
-
-        /* OVERLAY */
-        #game-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 9999; }
-        .close-bar { background: #11081a; padding: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--purple); }
-        iframe { width: 100%; height: calc(100% - 60px); border: none; }
-    </style>
+    
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-    <div class="experimental-banner">⚠️ EXPERIMENTAL HUB ACTIVE</div>
-
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="hub.html" style="color: var(--purple);">GAMES</a>
-        <a href="status.html">STATUS</a>
-    </nav>
-
     <header>
-        <h1>GAME VAULT</h1>
+        <h1 class="logo">GAMES HUB</h1>
+        <nav>
+            <a href="../index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="hub.html" style="color: white; text-shadow: 0 0 10px var(--purple);">GAMES</a>
+            
+            <div class="dropdown">
+                <span class="dropbtn">PROXIES ▾</span>
+                <div class="dropdown-content">
+                    <a href="https://kazwire.com" target="_blank">KAZWIRE <span class="dot">●</span></a>
+                    <a href="https://froggie.xyz" target="_blank">FROGGIE <span class="dot">●</span></a>
+                    <a href="proxies.html">ALL TERMINALS</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('clFNAF.html')">
-            <span class="status-tag" style="background: red;">HORROR</span>
-            <div class="game-title">FNAF 1</div>
+    <div class="container">
+        <div class="section">
+            <h2>FEATURED TITLES</h2>
+            <p>Select a terminal to begin execution. All games are optimized for browser performance.</p>
+            
+            <div style="margin-top: 20px;">
+                <a href="../games/fnaf2/index.html" class="back-btn" style="display: block; text-align: center; margin-bottom: 10px;">FIVE NIGHTS AT FREDDY'S 2</a>
+                <a href="../games/fnaf3/index.html" class="back-btn" style="display: block; text-align: center;">FIVE NIGHTS AT FREDDY'S 3</a>
+            </div>
         </div>
 
-        <div class="game-card" onclick="openGame('clfnaf2.html')">
-            <span class="status-tag" style="background: red;">HORROR</span>    
-            <div class="game-title">FNAF2</div>
+        <div class="section">
+            <h2>SYSTEM NOTICE</h2>
+            <p>More titles are being migrated to the new folder structure. Check back for updates shortly.</p>
         </div>
-
-        <div class="game-card"><div class="game-title">ENCRYPTED</div></div>
-        <div class="game-card"><div class="game-title">ENCRYPTED</div></div>
     </div>
 
-    <div id="game-overlay">
-        <div class="close-bar">
-            <span style="color: var(--purple); font-family: 'Orbitron';">AVUIX SYSTEM // ACTIVE</span>
-            <button onclick="closeGame()" style="background: var(--purple); color: white; border: none; cursor: pointer; padding: 5px 15px; font-family: 'Orbitron';">EXIT [X]</button>
-        </div>
-        <iframe id="game-frame" src=""></iframe>
-    </div>
+    <footer>
+        &copy; 2026 AVUIX TERMINAL // HUB_V1.0
+    </footer>
 
-    <script>
-        function openGame(url) {
-            document.getElementById('game-frame').src = url;
-            document.getElementById('game-overlay').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        function closeGame() {
-            document.getElementById('game-overlay').style.display = 'none';
-            document.getElementById('game-frame').src = '';
-            document.body.style.overflow = 'auto';
-        }
-    </script>
 </body>
 </html>
