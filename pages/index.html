@@ -7,325 +7,34 @@
     
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --purple: #bc13fe;
-            --purple-glow: rgba(188, 19, 254, 0.5);
-            --dark-bg: #050208;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(188, 19, 254, 0.2);
-        }
-
-        /* Scanline Overlay Effect */
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 99;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--dark-bg);
-            background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Top Notice Bar */
-        .experimental-banner {
-            width: 100%;
-            background: rgba(188, 19, 254, 0.1);
-            border-bottom: 1px solid var(--purple);
-            padding: 10px 0;
-            font-size: 0.8rem;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            z-index: 100;
-        }
-
-        .experimental-banner a {
-            color: var(--purple);
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        header {
-            margin-top: 6vh;
-            text-align: center;
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(3rem, 10vw, 5rem);
-            letter-spacing: 15px;
-            color: white;
-            text-shadow: 0 0 20px var(--purple);
-            margin: 0;
-            animation: logoPulse 4s infinite ease-in-out;
-        }
-
-        @keyframes logoPulse {
-            0%, 100% { text-shadow: 0 0 20px var(--purple); transform: scale(1); }
-            50% { text-shadow: 0 0 40px var(--purple), 0 0 10px white; transform: scale(1.02); }
-        }
-
-        /* --- NAVIGATION (FIXED HOVER GAP) --- */
-        nav {
-            display: flex;
-            gap: 10px;
-            background: var(--glass);
-            padding: 8px 20px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(15px);
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 200;
-        }
-
-        nav a, .dropbtn {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: 0.4s;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        nav a:hover, .dropdown:hover .dropbtn {
-            color: white;
-            background: rgba(188, 19, 254, 0.2);
-            text-shadow: 0 0 10px var(--purple);
-        }
-
-        /* --- DROPDOWN LOGIC (FIXED) --- */
-        .dropdown { 
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #11081a;
-            min-width: 160px;
-            border: 1px solid var(--purple);
-            border-radius: 12px;
-            top: calc(100% + 8px);
-            left: 0;
-            padding: 8px 0;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
-            z-index: 1000;
-        }
-
-        /* FIX: Create invisible bridge to prevent gap issues */
-        .dropdown::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            height: 10px;
-        }
-
-        .dropdown:hover .dropdown-content { 
-            display: block;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 12px 20px;
-            font-size: 0.7rem;
-            border-radius: 0;
-            text-align: left;
-            transition: background 0.3s;
-            white-space: nowrap;
-        }
-
-        .dropdown-content a:hover {
-            background: rgba(188, 19, 254, 0.3);
-            text-shadow: 0 0 10px var(--purple);
-        }
-
-        /* --- MAIN BUTTON --- */
-        .hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .start-btn {
-            font-family: 'Orbitron', sans-serif;
-            background: transparent;
-            color: white;
-            border: 2px solid var(--purple);
-            padding: 18px 50px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            letter-spacing: 6px;
-            transition: 0.5s;
-            border-radius: 4px;
-            box-shadow: 0 0 15px var(--purple);
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .start-btn:hover {
-            background: var(--purple);
-            box-shadow: 0 0 50px var(--purple);
-            transform: translateY(-3px);
-        }
-
-        /* --- INFO GRID --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: left;
-        }
-
-        .card h2 { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 0.8rem; 
-            color: var(--purple); 
-            margin: 0 0 10px 0; 
-            letter-spacing: 2px; 
-        }
-
-        .card p { 
-            font-size: 0.9rem; 
-            color: #888; 
-            margin: 0; 
-            line-height: 1.6; 
-        }
-
-        footer {
-            padding: 20px;
-            font-size: 0.65rem;
-            color: #444;
-            letter-spacing: 4px;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .dropdown-content {
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%);
-                min-width: 200px;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="experimental-banner">
-        ⚠️ For now this Github Pages is experimental. Instead, use our 
-        <a href="https://sites.google.com/view/avuix/home">GOOGLE SITES</a> 
-        which is currently in full development.
-    </div>
-
     <header>
         <h1 class="logo">AVUIX</h1>
-        
         <nav>
+            <a href="index.html">HOME</a>
+            <a href="hub.html">GAMES</a>
+            
             <div class="dropdown">
-                <span class="dropbtn">HOME ▾</span>
+                <button class="dropbtn">PROXIES ▾</button>
                 <div class="dropdown-content">
-                    <a href="about.html">ABOUT US</a>
-                    <a href="status.html">SYSTEM STATUS</a>
+                    <a href="https://kazwire.com">KAZWIRE <span class="dot">●</span></a>
+                    <a href="https://froggie.xyz">FROGGIE <span class="dot">●</span></a>
+                    <a href="proxies.html" style="color: #bc13fe;">ALL TERMINALS</a>
                 </div>
             </div>
-            <a href="hub.html">GAMES</a>
-            <a href="https://sites.google.com/view/avuix/home">MAIN HUB</a>
-<div class="nav-item dropdown">
-    <button class="dropbtn">PROXIES ▼</button>
-    <div class="dropdown-content">
-        <a href="https://kazwire.com" target="_blank">KAZWIRE <span class="dot">●</span></a>
-        <a href="https://froggie.xyz" target="_blank">FROGGIE ARCADE <span class="dot">●</span></a>
-        <a href="https://daydream.io" target="_blank">DAYDREAM X <span class="dot">●</span></a>
-        <a href="proxies.html" class="terminal-link">OPEN TERMINAL</a>
-    </div>
-</div>
-
-<style>
-    /* Add this to your existing CSS */
-    .dropdown { position: relative; display: inline-block; }
-    .dropbtn {
-        background: none; border: none; color: white;
-        font-family: inherit; font-size: 16px; cursor: pointer;
-        padding: 10px;
-    }
-    .dropdown-content {
-        display: none; position: absolute; background-color: #111;
-        min-width: 200px; border: 1px solid #333; z-index: 1000;
-        top: 100%; left: 0;
-    }
-    .dropdown-content a {
-        color: white; padding: 12px 16px; text-decoration: none;
-        display: flex; justify-content: space-between; font-size: 14px;
-    }
-    .dropdown-content a:hover { background-color: #222; color: #00ff41; }
-    .dropdown:hover .dropdown-content { display: block; }
-    .dot { color: #00ff41; font-size: 12px; }
-    .terminal-link { border-top: 1px solid #333; color: #00ff41 !important; }
-</style>
         </nav>
     </header>
 
-    <div class="hero">
+    <div style="flex: 1; display: flex; align-items: center;">
         <a href="hub.html" class="start-btn">PRESS START</a>
     </div>
 
-    <div class="info-grid">
-        <div class="card">
-            <h2>WHAT IS AVUIX?</h2>
-            <p>A high-performance gaming hub designed for speed, privacy, and unrestricted access to the web's best titles.</p>
-        </div>
-        <div class="card">
-            <h2>ANNOUNCEMENTS</h2>
-            <p>V1.0 rollout in progress. We are currently migrating the game database and hardening the infrastructure.</p>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2026 AVUIX TERMINAL // ALL RIGHTS RESERVED
+    <footer style="padding: 40px; color: #444; font-size: 0.7rem; letter-spacing: 3px;">
+        &copy; 2026 AVUIX TERMINAL
     </footer>
 
 </body>
