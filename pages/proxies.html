@@ -3,31 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | Proxies</title>
-  
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Proxies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <h1 class="logo">TERMINALS</h1>
-        <nav>
-            <a href="../index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="hub.html">GAMES</a>
-            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--purple);">PROXIES</a>
-        </nav>
-    </header>
-
     <div class="container">
-        <div class="section">
-            <h2>EXTERNAL LINKS</h2>
-            <p>Select a proxy terminal to bypass restrictions. Status: <span style="color: #00ff41;">ONLINE</span></p>
-            
-            <div style="margin-top: 20px;">
-                <a href="https://kazwire.com" target="_blank" class="back-btn" style="display: block; text-align: center; margin-bottom: 12px; border-color: #00ff41;">KAZWIRE <span class="dot">●</span></a>
-                <a
+        <h1>Proxy List</h1>
+        <div class="dropdown">
+            <button>Dropdown</button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <p>Here is where the list of proxies will be displayed.</p>
+    </div>
+    <footer>
+        <p>&copy; 2026 Avuix</p>
+    </footer>
+</body>
+</html>
