@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | System Status</title>
+    <title>AVUIX | Proxies</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
@@ -15,7 +15,7 @@
     </div>
 
     <header>
-        <h1 class="logo">SYSTEM STATUS</h1>
+        <h1 class="logo">PROXIES</h1>
         <nav>
             <div class="dropdown">
                 <span class="dropbtn">HOME ▾</span>
@@ -27,61 +27,79 @@
                 </div>
             </div>
             <a href="hub.html">GAMES</a>
-            <a href="proxies.html">PROXIES</a>
-            <a href="status.html" style="color: white; text-shadow: 0 0 10px var(--purple);">STATUS</a>
+            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--purple);">PROXIES</a>
+            <a href="status.html">STATUS</a>
         </nav>
     </header>
 
     <div class="container">
         
         <div class="section">
-            <h2>🟢 OPERATIONAL STATUS</h2>
-            <div class="status-indicator">
-                <div class="status-dot"></div>
-                <div>
-                    <div style="font-family: 'Orbitron', sans-serif; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;">ALL SYSTEMS OPERATIONAL</div>
-                    <div style="font-size: 0.75rem; color: #888; margin-top: 5px;">Last updated: 2026-03-06 12:00:00 (UTC) • Uptime: 99.9%</div>
+            <h2>🌐 EXTERNAL TERMINALS</h2>
+            <p>Access unrestricted browsing through multiple proxy terminals. All proxies are monitored, maintained, and optimized by the AVUIX collective for maximum performance and reliability.</p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 AVAILABLE PROXIES</h2>
+            <p style="font-size: 0.85rem; color: #999; margin-bottom: 20px;">Click any proxy to launch in a new window. All terminals are secure and regularly tested for uptime.</p>
+            <div class="proxy-grid">
+                <button class="proxy-btn" onclick="openProxy('https://kazwire.com/')">KAZWIRE</button>
+                <button class="proxy-btn" onclick="openProxy('https://full.boxathome.net/')">BOX@HOME</button>
+                <button class="proxy-btn" onclick="openProxy('https://daydreamx.pro/')">DAYDREAMX</button>
+                <button class="proxy-btn" onclick="openProxy('https://holyunblocker.org/')">HOLY UNBLOCKER</button>
+                <button class="proxy-btn" onclick="openProxy('https://incog.works/')">INCOG</button>
+                <button class="proxy-btn" onclick="openProxy('https://definitelyscience.com/')">DEFINITELY SCIENCE</button>
+                <button class="proxy-btn" onclick="openProxy('https://truffled.lol/')">TRUFFLED</button>
+                <button class="proxy-btn" onclick="openProxy('https://helios-browser.vercel.app/')">HELIOS</button>
+                <button class="proxy-btn" onclick="openProxy('https://nano-proxy.github.io/')">NANO PROXY</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✅ TERMINAL STATUS</h2>
+            <div class="status-list">
+                <div class="status-item">
+                    <span class="status-item-name">KAZWIRE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">BOX@HOME</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DAYDREAMX</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HOLY UNBLOCKER</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">INCOG</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DEFINITELY SCIENCE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">TRUFFLED</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HELIOS</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">NANO PROXY</span>
+                    <span class="status-item-status">● ONLINE</span>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>📊 SERVICE DIAGNOSTICS</h2>
-            <div style="display: grid; gap: 12px;">
-                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'" onmouseout="this.style.background='rgba(0, 255, 136, 0.05)'">
-                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">🎮 GAME VAULT</span>
-                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'" onmouseout="this.style.background='rgba(0, 255, 136, 0.05)'">
-                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">🔌 API GATEWAY</span>
-                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'" onmouseout="this.style.background='rgba(0, 255, 136, 0.05)'">
-                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">🗄️ DATABASE CLUSTER</span>
-                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'" onmouseout="this.style.background='rgba(0, 255, 136, 0.05)'">
-                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">🌐 CDN INFRASTRUCTURE</span>
-                    <span style="color: var(--green); font-weight: bold;">● ONLINE</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'" onmouseout="this.style.background='rgba(0, 255, 136, 0.05)'">
-                    <span style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">🔒 SECURITY PROTOCOLS</span>
-                    <span style="color: var(--green); font-weight: bold;">● ACTIVE</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>⚠️ INCIDENT LOG</h2>
-            <div style="padding: 20px; background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 12px; text-align: center;">
-                <div style="font-family: 'Orbitron', sans-serif; color: var(--green); font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">✓ NO ACTIVE INCIDENTS</div>
-                <div style="font-size: 0.8rem; color: #888; margin-top: 8px;">All services running nominally • 0 critical alerts</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>📈 PERFORMANCE METRICS</h2>
-            <p>Average Response Time: <strong style="color: var(--green);">45ms</strong> | Uptime SLA: <strong style="color: var(--green);">99.9%</strong> | Active Users: <strong style="color: var(--green);">Stable</strong></p>
+            <h2>ℹ️ PROXY INFORMATION</h2>
+            <p>Each terminal provides secure, encrypted access with varying levels of anonymity. All proxies are tested for stability and performance before deployment. Choose the terminal that best fits your needs.</p>
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
@@ -91,8 +109,14 @@
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // STATUS_V3.0
+        &copy; 2026 AVUIX TERMINAL // PROXIES_V3.0
     </footer>
+
+    <script>
+        function openProxy(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>
