@@ -26,3 +26,10 @@ AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and
 - **CSS3:** Advanced variables (`:root`), Flexbox, and Grid layouts.
 - **JavaScript:** Vanilla JS for navigation logic and game state management.
 - **Unity WebGL:** Support for high-end browser-based titles like *Slope Plus*.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 📜 Credits
+**UGS FILES**
+**Titanium Network**
+
