@@ -30,6 +30,6 @@ AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 📜 Credits
-**UGS FILES**
-**Titanium Network**
+- **UGS FILES**
+- **Titanium Network**
 
