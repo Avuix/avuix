@@ -8,480 +8,228 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        .header-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(188, 19, 254, 0.05);
-            border-bottom: 1px solid rgba(188, 19, 254, 0.2);
-        }
-
-        .home-btn-header {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--purple);
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border: 1px solid var(--purple);
-            border-radius: 4px;
-        }
-
-        .home-btn-header:hover {
-            background: var(--purple);
-            color: white;
-            box-shadow: 0 0 15px var(--purple);
-        }
-
-        .category-section {
-            margin-bottom: 60px;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid rgba(188, 19, 254, 0.3);
-        }
-
-        .category-icon {
-            font-size: 1.8rem;
-        }
-
-        .category-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: white;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin: 0;
-            text-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
-        }
-
-        .game-count {
-            font-size: 0.75rem;
-            color: #888;
-            margin-left: auto;
-        }
-
-        .games-container {
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 18px;
-            margin-bottom: 40px;
+            gap: 12px;
+            margin-top: 30px;
+            padding: 0 15px;
+            width: 100%;
+            max-width: 1400px;
         }
 
-        .game-card-updated {
-            background: linear-gradient(135deg, rgba(188, 19, 254, 0.08) 0%, rgba(188, 19, 254, 0.02) 100%);
-            border: 1px solid rgba(188, 19, 254, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
+        .game-card {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15), rgba(188, 19, 254, 0.05));
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             text-decoration: none;
             color: white;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
-            text-align: center;
-            aspect-ratio: 4/3;
-            position: relative;
+            align-items: center;
+            min-height: 100px;
         }
 
-        .game-card-updated:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--purple);
-            box-shadow: 0 15px 40px rgba(188, 19, 254, 0.3), inset 0 1px 0 rgba(188, 19, 254, 0.1);
-            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15) 0%, rgba(188, 19, 254, 0.05) 100%);
+        .game-card:hover {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.3), rgba(188, 19, 254, 0.15));
+            border-color: rgba(188, 19, 254, 0.6);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
+            transform: translateY(-5px);
         }
 
-        .game-card-name {
+        .game-card-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
-            margin: 0;
+            line-height: 1.2;
+            word-break: break-word;
         }
 
-        .game-genre-tag {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            font-size: 0.6rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            backdrop-filter: blur(10px);
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
         }
 
-        .tag-horror {
-            background: linear-gradient(135deg, #ff3333 0%, #cc0000 100%);
+        #searchInput {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(188, 19, 254, 0.4);
             color: white;
-            box-shadow: 0 0 10px rgba(255, 51, 51, 0.4);
+            padding: 12px 20px;
+            border-radius: 25px;
+            width: 280px;
+            max-width: 90%;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        .tag-puzzle {
-            background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
-            color: white;
-            box-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+        #searchInput:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(188, 19, 254, 0.7);
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
         }
 
-        .tag-action {
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-            color: white;
-            box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+        #searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .tag-adventure {
-            background: linear-gradient(135deg, #ffcc00 0%, #ff9900 100%);
-            color: #050208;
-            box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 1rem;
         }
 
-        .tag-rhythm {
-            background: linear-gradient(135deg, #ff00ff 0%, #cc00cc 100%);
-            color: white;
-            box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+        .game-count {
+            color: rgba(188, 19, 254, 0.7);
+            font-size: 0.85rem;
+            margin-top: 10px;
         }
 
-        .tag-platformer {
-            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
-            color: #050208;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
-        }
-
-        .tag-simulation {
-            background: linear-gradient(135deg, #bc13fe 0%, #8800cc 100%);
-            color: white;
-            box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+        .loading {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 20px;
+            color: rgba(188, 19, 254, 0.6);
         }
 
         @media (max-width: 768px) {
-            .games-container {
+            .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 12px;
+                gap: 8px;
+                padding: 0 10px;
             }
 
-            .game-card-updated {
-                padding: 15px;
-            }
-
-            .game-card-name {
-                font-size: 0.7rem;
-            }
-
-            .category-title {
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .games-container {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-                gap: 10px;
-            }
-
-            .category-header {
-                flex-wrap: wrap;
-            }
-
-            .game-count {
-                width: 100%;
-                margin-left: 0;
-                margin-top: 8px;
+            #searchInput {
+                width: 85%;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="experimental-banner">
-        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
-    </div>
-
-    <div class="header-nav">
-        <a href="../index.html" class="home-btn-header">🏠 HOME</a>
-        <h1 class="logo" style="margin: 0; font-size: 2rem; flex: 1; text-align: center;">GAME VAULT</h1>
-        <div style="width: 80px;"></div>
-    </div>
-
-    <header style="margin-top: 20px;">
+    <header>
+        <h1 class="logo">GAMES</h1>
         <nav>
-            <div class="dropdown">
-                <span class="dropbtn">HOME ▾</span>
-                <div class="dropdown-content">
-                    <a href="../index.html">MAIN</a>
-                    <a href="about.html">ABOUT US</a>
-                    <a href="status.html">SYSTEM STATUS</a>
-                    <a href="privacy-policy.html">PRIVACY POLICY</a>
-                </div>
-            </div>
+            <a href="../index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
             <a href="hub.html" style="color: white; text-shadow: 0 0 10px var(--purple);">GAMES</a>
             <a href="proxies.html">PROXIES</a>
-            <a href="status.html">STATUS</a>
+            
+            <div class="dropdown">
+                <span class="dropbtn">MORE ▾</span>
+                <div class="dropdown-content">
+                    <a href="status.html">STATUS</a>
+                    <a href="privacy-policy.html">PRIVACY</a>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-
-        <!-- HORROR GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">👻</span>
-                <h2 class="category-title">HORROR</h2>
-                <span class="game-count">4 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/clFNAF.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-horror">HORROR</span>
-                    <p class="game-card-name">FNAF 1</p>
-                </a>
-                <a href="../games/clfnaf2.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-horror">HORROR</span>
-                    <p class="game-card-name">FNAF 2</p>
-                </a>
-                <a href="../games/clFNAF3.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-horror">HORROR</span>
-                    <p class="game-card-name">FNAF 3</p>
-                </a>
-                <a href="../games/clfnaf4.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-horror">HORROR</span>
-                    <p class="game-card-name">FNAF 4</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- ACTION GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">⚔️</span>
-                <h2 class="category-title">ACTION</h2>
-                <span class="game-count">5 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/clageofwar2.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">AGE OF WAR 2</p>
-                </a>
-                <a href="../games/cldeathchase.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">DEATH CHASE</p>
-                </a>
-                <a href="../games3/clzombierush.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">ZOMBIE RUSH</p>
-                </a>
-                <a href="../games3/clzombotron2.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">ZOMBOTRON 2</p>
-                </a>
-                <a href="../games3/clzombieroad.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">ZOMBIE ROAD</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- PUZZLE GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🧩</span>
-                <h2 class="category-title">PUZZLE</h2>
-                <span class="game-count">3 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/cl1.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-puzzle">PUZZLE</span>
-                    <p class="game-card-name">1 - THE NUMBER GAME</p>
-                </a>
-                <a href="../games3/clzuma.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-puzzle">PUZZLE</span>
-                    <p class="game-card-name">ZUMA</p>
-                </a>
-                <a href="../games/clfnafucn.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-puzzle">PUZZLE</span>
-                    <p class="game-card-name">ULTIMATE CUSTOM NIGHT</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- ADVENTURE GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🗺️</span>
-                <h2 class="category-title">ADVENTURE</h2>
-                <span class="game-count">2 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games3/clyumenikki.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-adventure">ADVENTURE</span>
-                    <p class="game-card-name">YUME NIKKI</p>
-                </a>
-                <a href="../games3/clzeldaminishcap.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-adventure">ADVENTURE</span>
-                    <p class="game-card-name">ZELDA MINISH CAP</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- RHYTHM GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🎵</span>
-                <h2 class="category-title">RHYTHM</h2>
-                <span class="game-count">2 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/clfnfqt.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-rhythm">RHYTHM</span>
-                    <p class="game-card-name">FNF - QT MOD</p>
-                </a>
-                <a href="../games/clfnfimposterv4.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-rhythm">RHYTHM</span>
-                    <p class="game-card-name">FNF - IMPOSTER V4</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- PLATFORMER GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🎮</span>
-                <h2 class="category-title">PLATFORMER</h2>
-                <span class="game-count">3 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/cl3pandas.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-platformer">PLATFORMER</span>
-                    <p class="game-card-name">3 PANDAS</p>
-                </a>
-                <a href="../games/cl3pandasnight.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-platformer">PLATFORMER</span>
-                    <p class="game-card-name">3 PANDAS NIGHT</p>
-                </a>
-                <a href="../games3/snowbros.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-platformer">PLATFORMER</span>
-                    <p class="game-card-name">SNOW BROS</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- SIMULATION/ARCADE GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🎯</span>
-                <h2 class="category-title">ARCADE/SIMULATION</h2>
-                <span class="game-count">4 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games/clfnafps.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-simulation">SIMULATION</span>
-                    <p class="game-card-name">FNAF PIZZERIA SIM</p>
-                </a>
-                <a href="../games/clfnafworldd.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-simulation">SIMULATION</span>
-                    <p class="game-card-name">FNAF WORLD</p>
-                </a>
-                <a href="../games2/clngon.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">N-GON</p>
-                </a>
-                <a href="../games2/cltag.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-puzzle">PUZZLE</span>
-                    <p class="game-card-name">TAG</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- RETRO GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">👾</span>
-                <h2 class="category-title">RETRO EMULATION</h2>
-                <span class="game-count">5 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games2/clstarfox64.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">STAR FOX 64</p>
-                </a>
-                <a href="../games2/clmegaman2gba.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">MEGA MAN II GBA</p>
-                </a>
-                <a href="../games3/clzelda2thelegendoflink.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-adventure">ADVENTURE</span>
-                    <p class="game-card-name">ZELDA II</p>
-                </a>
-                <a href="../games3/wilywars.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-platformer">PLATFORMER</span>
-                    <p class="game-card-name">WILY WARS</p>
-                </a>
-                <a href="../games2/cltelephonetrouble.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">TELEPHONE TROUBLE</p>
-                </a>
-            </div>
-        </div>
-
-        <!-- OTHER GAMES -->
-        <div class="category-section">
-            <div class="category-header">
-                <span class="category-icon">🎪</span>
-                <h2 class="category-title">OTHER</h2>
-                <span class="game-count">3 GAMES</span>
-            </div>
-            <div class="games-container">
-                <a href="../games2/closu.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-rhythm">RHYTHM</span>
-                    <p class="game-card-name">WEBOSU 2.0</p>
-                </a>
-                <a href="../games2/clmadnessgemini.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">MADNESS GEMINI</p>
-                </a>
-                <a href="../games/cldoomzio.html" class="game-card-updated">
-                    <span class="game-genre-tag tag-action">ACTION</span>
-                    <p class="game-card-name">DOOMZ.IO</p>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="container" style="margin-top: 60px; margin-bottom: 40px;">
+    <div class="container">
         <div class="section">
-            <h2>🎮 GAME VAULT STATUS</h2>
-            <p>30+ games ready to play! All titles have been tested for compatibility and performance. Click any game to launch it in a full-screen experience.</p>
-        </div>
+            <h2>🎮 COMPLETE GAME LIBRARY</h2>
+            <p>Browse all available games across all collections. Click to play.</p>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search games...">
+                <div class="game-count"><span id="gameCount">0</span> games available</div>
+            </div>
 
-        <div class="section">
-            <h2>⚡ PERFORMANCE NOTES</h2>
-            <p>Games are optimized for both desktop and mobile. Some games may take a moment to load depending on your internet speed. For best experience, use Chrome, Firefox, or Edge on desktop.</p>
-        </div>
+            <div class="games-grid" id="gamesGrid">
+                <div class="loading">Loading games...</div>
+            </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="../index.html" class="back-btn">RETURN TO CORE</a>
+            <div id="noResults" class="no-results" style="display: none;">
+                No games found. Try a different search.
+            </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // GAME_HUB_V4.0 - 30+ TITLES
+        &copy; 2026 AVUIX TERMINAL // GAMES_V3.0
     </footer>
 
+    <script>
+        const gamesGrid = document.getElementById('gamesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+        const gameCount = document.getElementById('gameCount');
+        let allGames = [];
+
+        async function loadGamesFromFolder(folderName) {
+            try {
+                const API_URL = `https://api.github.com/repos/Avuix/avuix/contents/${folderName}`;
+                const response = await fetch(API_URL);
+                const files = await response.json();
+                
+                return files
+                    .filter(file => file.name.endsWith('.html'))
+                    .map(file => ({
+                        name: file.name.replace(/\.html$/i, '').replace(/^cl/i, '').toUpperCase(),
+                        folder: folderName,
+                        file: `../${folderName}/${file.name}`
+                    }));
+            } catch (error) {
+                console.error(`Failed to load games from ${folderName}:`, error);
+                return [];
+            }
+        }
+
+        async function loadAllGames() {
+            try {
+                const folders = ['games', 'games2', 'games3'];
+                const allGamesArrays = await Promise.all(
+                    folders.map(folder => loadGamesFromFolder(folder))
+                );
+
+                // Flatten and remove duplicates
+                allGames = [...new Set(allGamesArrays.flat())]
+                    .sort((a, b) => a.name.localeCompare(b.name));
+
+                gameCount.textContent = allGames.length;
+                renderGames(allGames);
+            } catch (error) {
+                console.error('Failed to load games:', error);
+                gamesGrid.innerHTML = '<div class="loading" style="color: #ff3333;">Failed to load games. Please refresh.</div>';
+            }
+        }
+
+        function renderGames(gamesToShow = allGames) {
+            gamesGrid.innerHTML = '';
+            
+            if (gamesToShow.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            gamesToShow.forEach(game => {
+                const gameCard = document.createElement('a');
+                gameCard.href = game.file;
+                gameCard.className = 'game-card';
+                gameCard.title = `${game.name} (${game.folder})`;
+                gameCard.innerHTML = `<span class="game-card-title">${game.name}</span>`;
+                gamesGrid.appendChild(gameCard);
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = allGames.filter(game => 
+                game.name.toLowerCase().includes(searchTerm)
+            );
+            renderGames(filtered);
+        });
+
+        loadAllGames();
+    </script>
 </body>
 </html>
