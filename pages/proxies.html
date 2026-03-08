@@ -1,13 +1,199 @@
-<div class="proxy-grid">
-  <!-- Existing buttons -->
-  <div class="proxy-button">
-    <button onclick="handleCodeOrgProxy()">Code.org Proxy</button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVUIX | Proxies</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
 
-<div class="status-list">
-  <!-- Existing status entries -->
-  <div class="status-entry">
-    <span>Code.org Proxy: ONLINE</span>
-  </div>
-</div>
+        .proxy-btn {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.1) 0%, rgba(188, 19, 254, 0.05) 100%);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .proxy-btn:hover {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.25) 0%, rgba(188, 19, 254, 0.15) 100%);
+            border-color: var(--purple);
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .status-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(188, 19, 254, 0.05);
+            border-left: 3px solid var(--purple);
+            border-radius: 4px;
+        }
+
+        .status-item-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-item-status {
+            color: #00ff41;
+            font-weight: bold;
+        }
+
+        .experimental-banner {
+            background: rgba(255, 100, 0, 0.1);
+            border: 1px solid rgba(255, 100, 0, 0.3);
+            padding: 12px 20px;
+            text-align: center;
+            color: #ff9900;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .experimental-banner a {
+            color: #ffaa00;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="experimental-banner">
+        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
+    </div>
+
+    <header>
+        <h1 class="logo">PROXIES</h1>
+        <nav>
+            <div class="dropdown">
+                <span class="dropbtn">HOME ▾</span>
+                <div class="dropdown-content">
+                    <a href="../index.html">MAIN</a>
+                    <a href="about.html">ABOUT US</a>
+                    <a href="status.html">SYSTEM STATUS</a>
+                    <a href="privacy-policy.html">PRIVACY POLICY</a>
+                </div>
+            </div>
+            <a href="hub.html">GAMES</a>
+            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--purple);">PROXIES</a>
+            <a href="status.html">STATUS</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h2>🌐 EXTERNAL TERMINALS</h2>
+            <p>Access unrestricted browsing through multiple proxy terminals. All proxies are monitored, maintained, and optimized by the AVUIX collective for maximum performance and reliability.</p>
+        </div>
+
+        <div class="section">
+            <h2>🚀 AVAILABLE PROXIES</h2>
+            <p style="font-size: 0.85rem; color: #999; margin-bottom: 20px;">Click any proxy to launch in a new window. All terminals are secure and regularly tested for uptime.</p>
+            <div class="proxy-grid">
+                <button class="proxy-btn" onclick="openProxy('https://kazwire.com/')">KAZWIRE</button>
+                <button class="proxy-btn" onclick="openProxy('https://full.boxathome.net/')">BOX@HOME</button>
+                <button class="proxy-btn" onclick="openProxy('https://daydreamx.pro/')">DAYDREAMX</button>
+                <button class="proxy-btn" onclick="openProxy('https://holyunblocker.org/')">HOLY UNBLOCKER</button>
+                <button class="proxy-btn" onclick="openProxy('https://incog.works/')">INCOG</button>
+                <button class="proxy-btn" onclick="openProxy('https://definitelyscience.com/')">DEFINITELY SCIENCE</button>
+                <button class="proxy-btn" onclick="openProxy('https://truffled.lol/')">TRUFFLED</button>
+                <button class="proxy-btn" onclick="openProxy('https://helios-browser.vercel.app/')">HELIOS</button>
+                <button class="proxy-btn" onclick="openProxy('https://nano-proxy.github.io/')">NANO PROXY</button>
+                <button class="proxy-btn" onclick="openProxy('https://code.org/')">CODE.ORG</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✅ TERMINAL STATUS</h2>
+            <div class="status-list">
+                <div class="status-item">
+                    <span class="status-item-name">KAZWIRE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">BOX@HOME</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DAYDREAMX</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HOLY UNBLOCKER</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">INCOG</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">DEFINITELY SCIENCE</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">TRUFFLED</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">HELIOS</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">NANO PROXY</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-item-name">CODE.ORG</span>
+                    <span class="status-item-status">● ONLINE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ℹ️ PROXY INFORMATION</h2>
+            <p>Each terminal provides secure, encrypted access with varying levels of anonymity. All proxies are tested for stability and performance before deployment. Choose the terminal that best fits your needs.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html" class="back-btn">RETURN TO CORE</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 AVUIX TERMINAL // PROXIES_V4.0
+    </footer>
+
+    <script>
+        function openProxy(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
