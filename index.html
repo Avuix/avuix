@@ -3,54 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | Home</title>
-    
+    <title>AVUIX | Advanced Gaming Hub</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .hero-text {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .hero-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--purple);
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .start-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            padding: 18px 50px;
+            border: 2px solid var(--purple);
+            background: rgba(188, 19, 254, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .start-btn:hover {
+            background: rgba(188, 19, 254, 0.25);
+            box-shadow: 0 0 40px rgba(188, 19, 254, 0.7);
+            transform: translateY(-3px);
+            letter-spacing: 3px;
+        }
+
+        .start-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 80px 0;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15), rgba(188, 19, 254, 0.05));
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        .card:hover {
+            border-color: rgba(188, 19, 254, 0.6);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.25), rgba(188, 19, 254, 0.1));
+        }
+
+        .card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--purple);
+            letter-spacing: 1px;
+            margin: 0 0 15px 0;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 40vh;
+                margin: 40px 0;
+            }
+
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            .start-btn {
+                font-size: 0.95rem;
+                padding: 14px 35px;
+            }
+
+            .info-grid {
+                gap: 15px;
+                margin: 50px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <div class="experimental-banner">
-        ⚠️ Experimental Github Pages // Use <a href="https://www.avuix.games/">AVUIX.GAMES</a> for full experience
-    </div>
-
     <header>
         <h1 class="logo">AVUIX</h1>
-        
         <nav>
-            <div class="dropdown">
-                <span class="dropbtn">HOME ▾</span>
-                <div class="dropdown-content">
-                    <a href="pages/about.html">ABOUT US</a>
-                    <a href="pages/status.html">SYSTEM STATUS</a>
-                    <a href="pages/privacy-policy.html">PRIVACY POLICY</a>
-                </div>
-            </div>
+            <a href="index.html" style="color: white; text-shadow: 0 0 10px var(--purple);">HOME</a>
+            <a href="pages/about.html">ABOUT</a>
             <a href="pages/hub.html">GAMES</a>
             <a href="pages/proxies.html">PROXIES</a>
-            <a href="https://www.avuix.games/">MAIN HUB</a>
+            
+            <div class="dropdown">
+                <span class="dropbtn">MORE ▾</span>
+                <div class="dropdown-content">
+                    <a href="pages/status.html">STATUS</a>
+                    <a href="pages/privacy-policy.html">PRIVACY</a>
+                </div>
+            </div>
         </nav>
     </header>
 
     <div class="hero">
-        <a href="pages/hub.html" class="start-btn">PRESS START</a>
+        <div class="hero-text">
+            <h2>NEXT-GEN GAMING TERMINAL</h2>
+            <p>Lightning-fast performance. Complete privacy. Unrestricted access to 400+ games. No compromises.</p>
+        </div>
+        <a href="pages/hub.html" class="start-btn">▶ PRESS START</a>
     </div>
 
     <div class="info-grid">
         <div class="card">
-            <h2>🎮 WHAT IS AVUIX?</h2>
-            <p>A high-performance gaming hub engineered for speed, privacy, and unrestricted access to the web's best titles. Zero compromise on performance. Everything you need in one terminal.</p>
+            <h2>⚡ LIGHTNING FAST</h2>
+            <p>Optimized CDN delivery and edge caching ensure zero-lag performance. Every game loads instantly with our distributed infrastructure.</p>
         </div>
         <div class="card">
-            <h2>📢 ANNOUNCEMENTS</h2>
-            <p>V3.0 framework deployed. Complete CSS architecture redesign, genre-based game organization, and enhanced proxy integration. All services fully operational and optimized for next-gen browser gaming.</p>
+            <h2>🔒 MAXIMUM PRIVACY</h2>
+            <p>Your gaming session stays private. No tracking, no logs, no corporate bloatware. Pure, unfiltered entertainment on your terms.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // CORE_V3.0
+        &copy; 2026 AVUIX TERMINAL // EXPERIMENTAL_V3.0
     </footer>
-
 </body>
 </html>
