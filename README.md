@@ -4,7 +4,7 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and unrestricted access. This repository serves as the front-end architecture for the AVUIX project, featuring a custom-built UI with a glassmorphism aesthetic. AVUIX on Google site while being less professional and clean serves a way higher variety of games as we are a team of 10+ people working in full development yet our Github is just the owner who is me.
+### AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and unrestricted access. This repository serves as the front-end architecture for the AVUIX project, featuring a custom-built UI with a glassmorphism aesthetic. AVUIX on Google site while being less professional and clean serves a way higher variety of games as we are a team of 10+ people working in full development yet our Github is just the owner who is me.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
