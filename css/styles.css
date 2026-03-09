@@ -1,46 +1,83 @@
+/* ==================== ROOT VARIABLES ==================== */
 :root {
     --purple: #bc13fe;
+    --purple-dark: #8a0ab0;
     --purple-glow: rgba(188, 19, 254, 0.5);
     --dark-bg: #050208;
     --glass: rgba(255, 255, 255, 0.03);
     --border: rgba(188, 19, 254, 0.2);
     --green: #00ff88;
+    --green-dark: #00cc6a;
     --red: #ff3333;
+    --orange: #ff8c00;
+    --yellow: #ffcc00;
+    --blue: #00ccff;
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
 }
 
+/* ==================== BASE STYLES ==================== */
 * {
     box-sizing: border-box;
-}
-
-html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: var(--dark-bg);
-    background: radial-gradient(circle at top center, #1a0b2e 0%, #050208 100%);
+    background: radial-gradient(circle at 0% 0%, #1a0b2e 0%, #0a0410 50%, #050208 100%);
     color: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
 }
 
 body::before {
-    content: " ";
-    display: block;
+    content: '';
     position: fixed;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
     z-index: 1;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
+    animation: scanLines 8s linear infinite;
 }
 
+@keyframes scanLines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ==================== HEADER & NAVIGATION ==================== */
 header {
     position: relative;
     z-index: 100;
@@ -48,72 +85,111 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(188, 19, 254, 0.1);
+    background: linear-gradient(180deg, rgba(5, 2, 8, 0.9) 0%, rgba(5, 2, 8, 0.7) 100%);
 }
 
 .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.8rem, 8vw, 3rem);
+    font-weight: 900;
     letter-spacing: 12px;
     color: white;
-    text-shadow: 0 0 20px var(--purple);
-    margin: 0;
+    text-shadow: 
+        0 0 20px var(--purple),
+        0 0 40px rgba(188, 19, 254, 0.3),
+        0 0 60px rgba(188, 19, 254, 0.2);
+    margin: 0 0 15px 0;
     animation: logoPulse 4s infinite ease-in-out;
+    transition: all var(--transition-normal);
+}
+
+.logo:hover {
+    text-shadow: 
+        0 0 40px var(--purple),
+        0 0 80px rgba(188, 19, 254, 0.5),
+        0 0 120px rgba(188, 19, 254, 0.3);
+    transform: scale(1.05);
 }
 
 @keyframes logoPulse {
-    0%, 100% { 
-        text-shadow: 0 0 20px var(--purple), 0 0 40px rgba(188, 19, 254, 0.3);
+    0%, 100% {
+        text-shadow: 
+            0 0 20px var(--purple),
+            0 0 40px rgba(188, 19, 254, 0.3);
         transform: scale(1);
     }
-    50% { 
-        text-shadow: 0 0 40px var(--purple), 0 0 80px rgba(188, 19, 254, 0.4), 0 0 10px white;
+    50% {
+        text-shadow: 
+            0 0 40px var(--purple),
+            0 0 80px rgba(188, 19, 254, 0.4),
+            0 0 10px white;
         transform: scale(1.02);
     }
 }
 
 nav {
     display: flex;
-    gap: 10px;
-    background: var(--glass);
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.02);
     padding: 10px 20px;
     border-radius: 50px;
     border: 1px solid var(--border);
     border-top: 1px solid rgba(188, 19, 254, 0.4);
     backdrop-filter: blur(15px);
-    margin-top: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(188, 19, 254, 0.1);
-    position: relative;
-    z-index: 200;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(188, 19, 254, 0.1);
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 100%;
 }
 
 nav a, .dropbtn {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    padding: 10px 15px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+    letter-spacing: 1.5px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    transition: all var(--transition-normal);
     cursor: pointer;
     white-space: nowrap;
     background: none;
     border: none;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::before, .dropbtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(188, 19, 254, 0.2);
+    transition: left var(--transition-normal);
+    z-index: -1;
+    border-radius: 30px;
+}
+
+nav a:hover::before, .dropdown:hover .dropbtn::before {
+    left: 0;
 }
 
 nav a:hover, .dropdown:hover .dropbtn {
     color: white;
-    background: rgba(188, 19, 254, 0.25);
     text-shadow: 0 0 10px var(--purple);
     box-shadow: inset 0 0 15px rgba(188, 19, 254, 0.1);
+    transform: translateY(-2px);
 }
 
-.dropdown { 
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -122,23 +198,25 @@ nav a:hover, .dropdown:hover .dropbtn {
     display: none;
     position: absolute;
     background: rgba(17, 8, 26, 0.98);
-    min-width: 180px;
+    min-width: 200px;
     border: 1px solid var(--purple);
-    border-radius: 12px;
+    border-radius: 15px;
     top: calc(100% + 12px);
     left: 0;
     padding: 8px 0;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(188, 19, 254, 0.2);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(188, 19, 254, 0.2);
     z-index: 1000;
     backdrop-filter: blur(10px);
-    animation: slideDown 0.3s ease;
+    animation: slideDown 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
     to {
         opacity: 1;
@@ -157,23 +235,36 @@ nav a:hover, .dropdown:hover .dropbtn {
 }
 
 .dropdown:hover .dropdown-content,
-.dropdown-content:hover { 
+.dropdown-content:hover {
     display: block;
 }
 
 .dropdown-content a {
     display: block;
     padding: 12px 20px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', monospace;
     font-size: 0.7rem;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     text-align: left;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     white-space: nowrap;
     letter-spacing: 1px;
     border-left: 3px solid transparent;
     text-transform: uppercase;
+    position: relative;
+}
+
+.dropdown-content a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(188, 19, 254, 0.1);
+    z-index: -1;
+    transition: all var(--transition-fast);
 }
 
 .dropdown-content a:hover {
@@ -184,6 +275,7 @@ nav a:hover, .dropdown:hover .dropbtn {
     padding-left: 23px;
 }
 
+/* ==================== MAIN CONTENT ==================== */
 .container {
     max-width: 900px;
     width: 90%;
@@ -197,54 +289,94 @@ nav a:hover, .dropdown:hover .dropbtn {
     flex: 1;
     position: relative;
     z-index: 10;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .section {
     margin-bottom: 30px;
+    animation: fadeIn 0.8s ease both;
 }
 
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+
 .section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
     letter-spacing: 2px;
     color: var(--purple);
     margin: 30px 0 15px 0;
     text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
 }
 
 .section p {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: rgba(255, 255, 255, 0.8);
     margin: 0 0 15px 0;
 }
 
+.section ul, .section ol {
+    margin: 15px 0;
+    padding-left: 30px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.section li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
 .back-btn {
     display: inline-block;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', monospace;
     border: 2px solid var(--purple);
-    padding: 12px 30px;
+    padding: clamp(12px, 2vw, 16px) clamp(25px, 4vw, 40px);
     color: white;
     text-decoration: none;
     box-shadow: 0 0 15px var(--purple);
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    transition: all var(--transition-normal);
     background: rgba(188, 19, 254, 0.05);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left var(--transition-slow);
+}
+
+.back-btn:hover::before {
+    left: 100%;
 }
 
 .back-btn:hover {
     background: rgba(188, 19, 254, 0.15);
-    box-shadow: 0 0 25px var(--purple);
+    box-shadow: 0 0 30px var(--purple);
     transform: translateY(-2px);
+    letter-spacing: 2px;
+    border-color: rgba(188, 19, 254, 0.8);
 }
 
 .back-btn:active {
     transform: translateY(0);
 }
 
+/* ==================== FOOTER ==================== */
 footer {
     text-align: center;
     padding: 25px;
@@ -255,11 +387,20 @@ footer {
     position: relative;
     z-index: 10;
     letter-spacing: 1px;
+    font-family: 'Orbitron', monospace;
+    background: linear-gradient(180deg, transparent 0%, rgba(188, 19, 254, 0.05) 100%);
+    transition: all var(--transition-normal);
 }
 
-/* Scrollbar Styling */
+footer:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(180deg, transparent 0%, rgba(188, 19, 254, 0.1) 100%);
+}
+
+/* ==================== SCROLLBAR ==================== */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -268,18 +409,66 @@ footer {
 
 ::-webkit-scrollbar-thumb {
     background: rgba(188, 19, 254, 0.3);
-    border-radius: 5px;
+    border-radius: 6px;
+    transition: all var(--transition-normal);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(188, 19, 254, 0.5);
 }
 
-/* Mobile Optimization */
+/* ==================== FORMS & INPUTS ==================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(188, 19, 254, 0.7);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+}
+
+button {
+    font-family: 'Orbitron', monospace;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+/* ==================== UTILITIES ==================== */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
 @media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
     .logo {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
-        letter-spacing: 8px;
+        font-size: clamp(1.3rem, 6vw, 2rem);
+        letter-spacing: 6px;
     }
 
     nav {
@@ -296,10 +485,12 @@ footer {
         width: 95%;
         padding: 25px 20px;
         border-radius: 15px;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
     .section h2 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         margin: 20px 0 10px 0;
     }
 
@@ -308,44 +499,144 @@ footer {
     }
 
     .dropdown-content {
-        min-width: 140px;
+        min-width: 150px;
     }
 
     footer {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        padding: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 1.2rem;
-        letter-spacing: 5px;
+    header {
+        padding: 12px;
     }
 
-    header {
-        padding-top: 10px;
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
     }
 
     nav {
         margin-top: 10px;
-        margin-bottom: 15px;
+        gap: 4px;
+        padding: 6px 12px;
     }
 
     nav a, .dropbtn {
         padding: 6px 10px;
         font-size: 0.6rem;
+        letter-spacing: 0.5px;
     }
 
     .container {
+        width: 97%;
         padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .section h2 {
         font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .section p {
+        font-size: 0.85rem;
     }
 
     .back-btn {
-        padding: 10px 20px;
-        font-size: 0.75rem;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.7rem;
+    }
+
+    footer {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    nav a, .dropbtn {
+        font-size: 0.55rem;
+        padding: 5px 8px;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(188, 19, 254, 0.6);
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    header, footer, nav {
+        display: none;
+    }
+
+    body::before, body::after {
+        display: none;
+    }
+
+    .container {
+        border: none;
+        box-shadow: none;
     }
 }
