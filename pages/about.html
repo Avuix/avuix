@@ -8,93 +8,184 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        .about-content { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        .about-section { margin: 50px 0; animation: fadeIn 0.8s ease both; }
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .about-section {
+            margin: 50px 0;
+            animation: fadeIn 0.8s ease both;
+        }
+
         .about-section:nth-child(1) { animation-delay: 0.1s; }
         .about-section:nth-child(2) { animation-delay: 0.2s; }
         .about-section:nth-child(3) { animation-delay: 0.3s; }
         .about-section:nth-child(4) { animation-delay: 0.4s; }
         .about-section:nth-child(5) { animation-delay: 0.5s; }
-        .about-section h2 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: var(--purple); letter-spacing: 2px; margin: 0 0 20px 0; text-transform: uppercase; }
-        .about-section p { color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 1rem; margin: 0 0 15px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 30px 0; }
-        .stat-card { background: rgba(188, 19, 254, 0.1); border: 1px solid rgba(188, 19, 254, 0.3); padding: 25px; border-radius: 15px; text-align: center; transition: all 0.3s; }
-        .stat-card:hover { background: rgba(188, 19, 254, 0.2); transform: translateY(-5px); }
-        .stat-num { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--green); font-weight: bold; }
-        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (max-width: 768px) { .about-section h2 { font-size: 1.4rem; } }
+
+        .about-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            color: var(--purple);
+            letter-spacing: 2px;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .about-section p {
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15), rgba(0, 255, 136, 0.08));
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-card:hover {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.25), rgba(0, 255, 136, 0.12));
+            transform: translateY(-8px);
+            border-color: rgba(188, 19, 254, 0.5);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.3);
+        }
+
+        .stat-num {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .about-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .about-content {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-content {
+                padding: 20px 10px;
+            }
+
+            .about-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .about-section p {
+                font-size: 0.9rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 class="logo">📜 AVUIX</h1>
         <nav>
-            <a href="../index.html">🏠 HOME</a>
-            <a href="hub.html">🎮 GAMES</a>
-            <a href="proxies.html">🌐 PROXIES</a>
             <div class="dropdown">
-                <span class="dropbtn">📋 MORE ▾</span>
+                <span class="dropbtn">🏠 HOME ▾</span>
                 <div class="dropdown-content">
+                    <a href="../index.html">🏠 MAIN</a>
                     <a href="about.html" style="color: white; text-shadow: 0 0 10px var(--purple);">📜 ABOUT</a>
                     <a href="status.html">📊 STATUS</a>
                     <a href="privacy-policy.html">🔐 PRIVACY</a>
                 </div>
             </div>
+            <a href="hub.html">🎮 GAMES</a>
+            <a href="proxies.html">👾 PROXIES</a>
         </nav>
     </header>
 
     <div class="about-content">
         <div class="about-section">
             <h2>⚡ OUR MISSION</h2>
-            <p>AVUIX exists to democratize gaming. We believe every player deserves high-performance entertainment without artificial limitations, corporate surveillance, or artificial barriers. Speed, privacy, and unrestricted access—that's our foundation.</p>
+            <p>AVUIX exists to democratize gaming and unrestricted web access. We believe every player deserves high-performance entertainment without artificial limitations, corporate surveillance, or artificial barriers. Speed, privacy, and unrestricted access—that's our foundation.</p>
         </div>
 
         <div class="about-section">
             <h2>🎯 THE VISION</h2>
-            <p>We envision a gaming landscape where latency is eliminated, privacy is paramount, and access is democratic. AVUIX serves as a proof-of-concept for next-generation browser gaming infrastructure.</p>
+            <p>We envision a digital landscape where latency is eliminated, privacy is paramount, and access is democratic. AVUIX serves as a proof-of-concept for next-generation browser gaming infrastructure that respects user autonomy.</p>
         </div>
 
         <div class="about-section">
             <h2>📊 BY THE NUMBERS</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-num">400+</div>
-                    <div class="stat-label">Games Available</div>
+                    <div class="stat-num">1000+</div>
+                    <div class="stat-label">Games</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-num">45ms</div>
-                    <div class="stat-label">Avg Response Time</div>
+                    <div class="stat-label">Response Time</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-num">99.9%</div>
-                    <div class="stat-label">Uptime SLA</div>
+                    <div class="stat-label">Uptime</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-num">0ms</div>
-                    <div class="stat-label">Data Retention</div>
+                    <div class="stat-num">0</div>
+                    <div class="stat-label">Data Stored</div>
                 </div>
             </div>
         </div>
 
         <div class="about-section">
-            <h2>🏗️ TECHNICAL ARCHITECTURE</h2>
-            <p>Built with semantic HTML5, advanced CSS3 with custom properties, and vanilla JavaScript. Our infrastructure utilizes distributed CDN delivery, edge caching, and optimized compression. Every component is engineered for performance, scalability, and maintainability.</p>
+            <h2>🏗️ TECHNICAL EXCELLENCE</h2>
+            <p>Built with semantic HTML5, advanced CSS3 with custom properties, and vanilla JavaScript. Our infrastructure utilizes distributed CDN delivery, edge caching, and optimized compression. Every component is engineered for performance, scalability, and maintainability with zero technical debt.</p>
         </div>
 
         <div class="about-section">
             <h2>👥 THE TEAM</h2>
-            <p>A collective of passionate developers, designers, and infrastructure engineers dedicated to pushing the boundaries of what's possible on the web. We code because we love it. We build because the world needs it.</p>
-            <p style="margin-top: 20px; font-style: italic; color: rgba(255,255,255,0.7);">Questions? Feedback? Ideas? We're always listening to our community.</p>
+            <p>A collective of passionate developers, designers, and infrastructure engineers dedicated to pushing the boundaries of what's possible on the web. We code because we love it. We build because the world needs innovation without compromise.</p>
         </div>
 
-        <div style="text-align: center; margin-top: 60px;">
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
             <a href="../index.html" class="back-btn">← RETURN HOME</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // ABOUT_V4.0
+        ALL RIGHTS RESERVED BY AVUIX© 2026
     </footer>
 </body>
 </html>
