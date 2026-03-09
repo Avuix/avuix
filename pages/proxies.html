@@ -3,120 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | Proxies</title>
+    <meta name="description" content="AVUIX Proxy Terminals - Unrestricted browsing through premium proxy networks">
+    <title>👾 AVUIX | Proxy Terminals</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .proxies-header {
+            text-align: center;
+            margin: 40px 0;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .proxies-header h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            color: var(--blue);
+            letter-spacing: 3px;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(0, 204, 255, 0.4);
+            font-weight: 900;
+        }
+
+        .proxies-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--blue);
+            letter-spacing: 2px;
+            margin: 50px 0 30px 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 900;
+        }
+
+        .proxy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 0 15px;
+            animation: fadeIn 0.8s ease 0.2s both;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .proxy-btn {
+            background: linear-gradient(135deg, rgba(0, 204, 255, 0.15), rgba(0, 255, 136, 0.08));
+            border: 2px solid rgba(0, 204, 255, 0.4);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 18px;
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2), inset 0 0 10px rgba(0, 204, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 140px;
+        }
+
+        .proxy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .proxy-btn:hover::before {
+            left: 100%;
+        }
+
+        .proxy-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 204, 255, 0.3), rgba(0, 255, 136, 0.15));
+            border-color: rgba(0, 204, 255, 0.7);
+            box-shadow: 0 0 50px rgba(0, 204, 255, 0.5), inset 0 0 20px rgba(0, 204, 255, 0.1);
+            transform: translateY(-8px);
+            letter-spacing: 3px;
+        }
+
+        .proxy-name {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+
+        .proxy-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px var(--green);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 15px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .status-item {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.05));
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .status-item:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 204, 255, 0.1));
+            border-color: rgba(0, 204, 255, 0.5);
+            transform: translateX(8px);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2);
+        }
+
+        .status-item-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .status-item-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 204, 255, 0.12), rgba(0, 255, 136, 0.05));
+            border: 1px solid rgba(0, 204, 255, 0.3);
+            border-radius: 18px;
+            padding: 30px;
+            margin: 30px auto;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+        }
+
+        .info-box h3 {
+            font-family: 'Orbitron', monospace;
+            color: var(--blue);
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .proxy-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .proxy-btn {
+                padding: 20px 15px;
+                font-size: 0.8rem;
+                min-height: 130px;
+                gap: 10px;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
+                margin: 20px auto;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .proxy-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 0;
+            }
+
+            .proxy-btn {
+                padding: 15px 12px;
+                font-size: 0.7rem;
+                min-height: 120px;
+                gap: 8px;
+                border-radius: 12px;
+            }
+
+            .info-box {
+                padding: 20px;
+                margin: 20px 10px;
+                border-radius: 15px;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin: 30px 0 20px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 class="logo">PROXIES</h1>
+        <h1 class="logo">👾 AVUIX</h1>
         <nav>
-            <a href="../index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="../pages/hub.html">GAMES</a>
-            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--purple);">PROXIES</a>
-            
             <div class="dropdown">
-                <span class="dropbtn">MORE ▾</span>
+                <span class="dropbtn">🏠 HOME ▾</span>
                 <div class="dropdown-content">
-                    <a href="status.html">STATUS</a>
-                    <a href="privacy-policy.html">PRIVACY</a>
+                    <a href="../index.html">🏠 MAIN</a>
+                    <a href="about.html">📜 ABOUT</a>
+                    <a href="status.html">📊 STATUS</a>
+                    <a href="privacy-policy.html">🔐 PRIVACY</a>
                 </div>
             </div>
+            <a href="hub.html">🎮 GAMES</a>
+            <a href="proxies.html" style="color: white; text-shadow: 0 0 10px var(--blue);">👾 PROXIES</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="section">
-            <h2>🌐 EXTERNAL TERMINALS</h2>
-            <p>Access unrestricted browsing through multiple proxy terminals. All proxies are monitored, maintained, and optimized by the AVUIX collective for maximum performance and reliability.</p>
+    <div class="proxies-header">
+        <h2>👾 PROXY TERMINALS</h2>
+        <p>Unrestricted Browsing | Secure Access | Lightning Fast</p>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+        <div class="info-box">
+            <h3>🌐 EXTERNAL TERMINALS</h3>
+            <p>Access the web without limitations through our network of premium proxy terminals. All proxies are monitored 24/7, maintained by the AVUIX collective, and optimized for maximum performance, privacy, and reliability. Click any terminal to launch instantly in a new window.</p>
         </div>
 
-        <div class="section">
-            <h2>🚀 AVAILABLE PROXIES</h2>
-            <p style="font-size: 0.85rem; color: #999; margin-bottom: 20px;">Click any proxy to launch in a new window. All terminals are secure and regularly tested for uptime.</p>
-            <div class="proxy-grid">
-                <button class="proxy-btn" onclick="openProxy('https://kazwire.com/')">KAZWIRE</button>
-                <button class="proxy-btn" onclick="openProxy('https://full.boxathome.net/')">BOX@HOME</button>
-                <button class="proxy-btn" onclick="openProxy('https://daydreamx.pro/')">DAYDREAMX</button>
-                <button class="proxy-btn" onclick="openProxy('https://holyunblocker.org/')">HOLY UNBLOCKER</button>
-                <button class="proxy-btn" onclick="openProxy('https://incog.works/')">INCOG</button>
-                <button class="proxy-btn" onclick="openProxy('https://definitelyscience.com/')">DEFINITELY SCIENCE</button>
-                <button class="proxy-btn" onclick="openProxy('https://truffled.lol/')">TRUFFLED</button>
-                <button class="proxy-btn" onclick="openProxy('https://helios-browser.vercel.app/')">HELIOS</button>
-                <button class="proxy-btn" onclick="openProxy('https://nano-proxy.github.io/')">NANO PROXY</button>
-                <button class="proxy-btn" onclick="openCodeOrg()">CODE.ORG</button>
+        <div class="section-title">🚀 AVAILABLE PROXIES</div>
+        <div class="proxy-grid">
+            <button class="proxy-btn" onclick="openProxy('https://kazwire.com/')">
+                <span class="proxy-name">KAZWIRE</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://full.boxathome.net/')">
+                <span class="proxy-name">BOX@HOME</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://daydreamx.pro/')">
+                <span class="proxy-name">DAYDREAMX</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://holyunblocker.org/')">
+                <span class="proxy-name">HOLY UNBLOCKER</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://incog.works/')">
+                <span class="proxy-name">INCOG</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://definitelyscience.com/')">
+                <span class="proxy-name">DEFINITELY SCIENCE</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://truffled.lol/')">
+                <span class="proxy-name">TRUFFLED</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://helios-browser.vercel.app/')">
+                <span class="proxy-name">HELIOS</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://nano-proxy.github.io/')">
+                <span class="proxy-name">NANO PROXY</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+            <button class="proxy-btn" onclick="openProxy('https://code.org/')">
+                <span class="proxy-name">CODE.ORG</span>
+                <div class="proxy-status"><div class="status-dot"></div>ACTIVE</div>
+            </button>
+        </div>
+
+        <div class="section-title">✅ REAL-TIME STATUS</div>
+        <div class="status-grid">
+            <div class="status-item">
+                <span class="status-item-name">KAZWIRE</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">BOX@HOME</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">DAYDREAMX</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">HOLY UNBLOCKER</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">INCOG</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">DEFINITELY SCIENCE</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">TRUFFLED</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">HELIOS</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">NANO PROXY</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-item-name">CODE.ORG</span>
+                <span class="status-item-status"><div class="status-dot"></div>ONLINE</span>
             </div>
         </div>
 
-        <div class="section">
-            <h2>✅ TERMINAL STATUS</h2>
-            <div class="status-list">
-                <div class="status-item">
-                    <span class="status-item-name">KAZWIRE</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">BOX@HOME</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">DAYDREAMX</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">HOLY UNBLOCKER</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">INCOG</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">DEFINITELY SCIENCE</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">TRUFFLED</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">HELIOS</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">NANO PROXY</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-                <div class="status-item">
-                    <span class="status-item-name">CODE.ORG</span>
-                    <span class="status-item-status">● ONLINE</span>
-                </div>
-            </div>
+        <div class="info-box">
+            <h3>ℹ️ PROXY INFORMATION</h3>
+            <p>Each terminal provides secure, encrypted access to the open web with varying anonymity levels. All proxies undergo rigorous security testing and performance optimization before deployment. Choose the terminal that best suits your speed and privacy preferences.</p>
         </div>
 
-        <div class="section">
-            <h2>ℹ️ PROXY INFORMATION</h2>
-            <p>Each terminal provides secure, encrypted access with varying levels of anonymity. All proxies are tested for stability and performance before deployment. Choose the terminal that best fits your needs.</p>
-        </div>
-
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="../index.html" class="back-btn">RETURN TO HOME</a>
+        <div style="text-align: center; margin: 60px 0 40px;">
+            <a href="../index.html" class="back-btn">← RETURN HOME</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // PROXIES_V2.0
+        ALL RIGHTS RESERVED BY AVUIX© 2026
     </footer>
 
     <script>
         function openProxy(url) {
             window.open(url, '_blank');
-        }
-
-        function openCodeOrg() {
-            fetch("https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/AASINGLEFILE.html?t="+Date.now()).then(response => response.text()).then(text => {const newWin = window.open("about:blank", "_blank");if (newWin) {newWin.document.open();newWin.document.write(text);newWin.document.close();}});
         }
     </script>
 </body>
