@@ -3,115 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVUIX | Advanced Gaming Hub</title>
+    <meta name="description" content="AVUIX - Next-gen gaming terminal with 400+ unblocked games, lightning-fast performance, and complete privacy.">
+    <meta name="theme-color" content="#bc13fe">
+    <title>AVUIX | Next-Gen Gaming Terminal</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .hero {
+        .hero-section {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 50vh;
-            gap: 30px;
-            margin: 60px 0;
+            min-height: 60vh;
+            gap: 40px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-text {
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(188, 19, 254, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            animation: floatBackground 15s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            animation: floatBackground 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatBackground {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
             text-align: center;
-            max-width: 600px;
+            max-width: 800px;
+            animation: fadeInDown 1s ease;
         }
 
-        .hero-text h2 {
+        .hero-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: var(--purple);
-            letter-spacing: 2px;
-            margin: 0 0 15px 0;
-            animation: fadeInDown 0.8s ease;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, var(--purple), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 20px 0;
+            animation: glitch 4s infinite;
         }
 
-        .hero-text p {
-            font-size: 1.05rem;
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 
+                    3px 0 var(--purple), 
+                    -3px 0 var(--green);
+            }
+            50% {
+                text-shadow: none;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
             color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 2px;
+            margin: 0 0 30px 0;
             line-height: 1.6;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
-        .start-btn {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            padding: 18px 50px;
-            border: 2px solid var(--purple);
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .stat {
             background: rgba(188, 19, 254, 0.1);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            background: rgba(188, 19, 254, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .cta-button {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
+            padding: clamp(14px, 3vw, 20px) clamp(35px, 5vw, 60px);
+            border: 2px solid var(--purple);
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.1), rgba(188, 19, 254, 0.05));
             color: white;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.5), inset 0 0 30px rgba(188, 19, 254, 0.1);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .start-btn:hover {
-            background: rgba(188, 19, 254, 0.25);
-            box-shadow: 0 0 40px rgba(188, 19, 254, 0.7);
-            transform: translateY(-3px);
             letter-spacing: 3px;
+            animation: fadeInUp 1s ease 0.6s both;
+            position: relative;
+            overflow: hidden;
         }
 
-        .start-btn:active {
-            transform: translateY(-1px);
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
         }
 
-        .info-grid {
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.25), rgba(188, 19, 254, 0.15));
+            box-shadow: 0 0 60px rgba(188, 19, 254, 0.8), inset 0 0 60px rgba(188, 19, 254, 0.2);
+            transform: translateY(-3px);
+            letter-spacing: 4px;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 80px 0;
-            padding: 0 20px;
+            gap: 30px;
+            margin: 100px 0;
         }
 
-        .card {
-            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15), rgba(188, 19, 254, 0.05));
+        .feature-card {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.1), rgba(0, 255, 136, 0.05));
             border: 1px solid rgba(188, 19, 254, 0.3);
-            border-radius: 12px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease forwards;
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease both;
         }
 
-        .card:nth-child(1) {
-            animation-delay: 0.5s;
+        .feature-card:nth-child(1) { animation-delay: 0.7s; }
+        .feature-card:nth-child(2) { animation-delay: 0.8s; }
+        .feature-card:nth-child(3) { animation-delay: 0.9s; }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--purple), var(--green));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .card:nth-child(2) {
-            animation-delay: 0.7s;
-        }
-
-        .card:hover {
+        .feature-card:hover {
             border-color: rgba(188, 19, 254, 0.6);
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(188, 19, 254, 0.25), rgba(188, 19, 254, 0.1));
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.2), rgba(0, 255, 136, 0.1));
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(188, 19, 254, 0.3);
         }
 
-        .card h2 {
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--purple);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin: 0 0 15px 0;
+            text-transform: uppercase;
         }
 
-        .card p {
+        .feature-desc {
             color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin: 0;
+            line-height: 1.7;
             font-size: 0.95rem;
         }
 
@@ -138,71 +264,115 @@
         }
 
         @media (max-width: 768px) {
-            .hero {
-                min-height: 40vh;
+            .hero-section {
+                min-height: 50vh;
                 margin: 40px 0;
+                gap: 25px;
             }
 
-            .hero-text h2 {
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                gap: 15px;
+                margin: 25px 0;
+            }
+
+            .features-grid {
+                gap: 20px;
+                margin: 60px 0;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                min-height: 40vh;
+                margin: 20px 0;
+            }
+
+            .hero-title {
                 font-size: 1.4rem;
             }
 
-            .hero-text p {
-                font-size: 0.95rem;
-            }
-
-            .start-btn {
-                font-size: 0.95rem;
-                padding: 14px 35px;
-            }
-
-            .info-grid {
-                gap: 15px;
-                margin: 50px 0;
+            .cta-button {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="logo">AVUIX</h1>
+        <h1 class="logo">⚡ AVUIX</h1>
         <nav>
-            <a href="index.html" style="color: white; text-shadow: 0 0 10px var(--purple);">HOME</a>
-            <a href="pages/about.html">ABOUT</a>
-            <a href="pages/hub.html">GAMES</a>
-            <a href="pages/proxies.html">PROXIES</a>
+            <a href="index.html" style="color: white; text-shadow: 0 0 10px var(--purple);">🏠 HOME</a>
+            <a href="pages/hub.html">🎮 GAMES</a>
+            <a href="pages/proxies.html">🌐 PROXIES</a>
             
             <div class="dropdown">
-                <span class="dropbtn">MORE ▾</span>
+                <span class="dropbtn">📋 MORE ▾</span>
                 <div class="dropdown-content">
-                    <a href="pages/status.html">STATUS</a>
-                    <a href="pages/privacy-policy.html">PRIVACY</a>
+                    <a href="pages/about.html">📜 ABOUT</a>
+                    <a href="pages/status.html">📊 STATUS</a>
+                    <a href="pages/privacy-policy.html">🔐 PRIVACY</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="hero">
-        <div class="hero-text">
-            <h2>NEXT-GEN GAMING TERMINAL</h2>
-            <p>Lightning-fast performance. Complete privacy. Unrestricted access to 400+ games. No compromises.</p>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">AVUIX</h2>
+            <p class="hero-subtitle">Next-Generation Gaming Infrastructure | Lightning-Fast | Completely Private | Unrestricted Access</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">1000+</div>
+                    <div class="stat-label">Games</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">45ms</div>
+                    <div class="stat-label">Response</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+
+            <a href="pages/hub.html" class="cta-button">▶ LAUNCH TERMINAL</a>
         </div>
-        <a href="pages/hub.html" class="start-btn">▶ PRESS START</a>
     </div>
 
-    <div class="info-grid">
-        <div class="card">
-            <h2>⚡ LIGHTNING FAST</h2>
-            <p>Optimized CDN delivery and edge caching ensure zero-lag performance. Every game loads instantly with our distributed infrastructure.</p>
+    <div class="features-grid" style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Lightning Performance</h3>
+            <p class="feature-desc">CDN-accelerated delivery with edge caching ensures every game loads in milliseconds. Zero compromise on speed.</p>
         </div>
-        <div class="card">
-            <h2>🔒 MAXIMUM PRIVACY</h2>
-            <p>Your gaming session stays private. No tracking, no logs, no corporate bloatware. Pure, unfiltered entertainment on your terms.</p>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3 class="feature-title">Complete Privacy</h3>
+            <p class="feature-desc">End-to-end encryption, no tracking, no logs. Your gaming session is 100% private and secure.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3 class="feature-title">Unrestricted Access</h3>
+            <p class="feature-desc">Access a massive library of games without artificial limitations or corporate censorship.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // EXPERIMENTAL_V3.0
+        &copy; 2026 AVUIX TERMINAL 
     </footer>
 </body>
 </html>
