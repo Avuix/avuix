@@ -11,6 +11,10 @@
 [🌐 View Live Github Site](https://avuix.github.io/avuix/) ⬅️Github
 [🌐 View Live Google Site](https://www.avuix.games/) ⬅️Google Sites
 
+## 🧠 Tips To Consider When Using
+- **Game Search** When searching for something in the games section make sure to not use any spaces or your game will not pop up I know this is a bad feature but soon it will be fixed 
+  Example: 1v1.lol ❌ 1v1lol ✅
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🚀 Features
