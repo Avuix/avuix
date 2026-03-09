@@ -8,39 +8,228 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        .status-content { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        .status-banner { background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 255, 136, 0.05)); border: 2px solid rgba(0, 255, 136, 0.4); border-radius: 20px; padding: 30px; margin-bottom: 40px; display: flex; align-items: center; gap: 20px; animation: slideIn 0.8s ease; }
-        .status-dot { width: 30px; height: 30px; background: #00ff88; border-radius: 50%; animation: pulse 2s infinite; box-shadow: 0 0 30px #00ff88; flex-shrink: 0; }
-        @keyframes pulse { 0%, 100% { box-shadow: 0 0 30px #00ff88; } 50% { box-shadow: 0 0 50px #00ff88; } }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        .status-banner h2 { font-family: 'Orbitron', sans-serif; color: #00ff88; letter-spacing: 2px; margin: 0 0 5px 0; text-transform: uppercase; }
-        .status-banner p { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin: 0; }
-        .diagnostics { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 40px 0; }
-        .diagnostic-item { background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.3); padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
-        .diagnostic-item:hover { background: rgba(0, 255, 136, 0.1); border-color: rgba(0, 255, 136, 0.5); }
-        .diagnostic-name { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
-        .diagnostic-status { color: #00ff88; font-weight: bold; }
-        .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
-        .metric { background: rgba(188, 19, 254, 0.1); border: 1px solid rgba(188, 19, 254, 0.3); padding: 25px; border-radius: 15px; text-align: center; }
-        .metric-value { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #00ff88; font-weight: bold; }
-        .metric-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+        .status-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .status-banner {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 204, 255, 0.08));
+            border: 2px solid rgba(0, 255, 136, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: slideIn 0.8s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-dot {
+            width: 40px;
+            height: 40px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 40px #00ff88;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 40px #00ff88;
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 60px #00ff88;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-banner h2 {
+            font-family: 'Orbitron', monospace;
+            color: #00ff88;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .status-banner p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+
+        .diagnostics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .diagnostic-item {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.12), rgba(0, 204, 255, 0.05));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .diagnostic-item:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 204, 255, 0.1));
+            border-color: rgba(0, 255, 136, 0.6);
+            transform: translateX(8px);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .diagnostic-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .diagnostic-status {
+            color: #00ff88;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse2 1.5s infinite;
+        }
+
+        @keyframes pulse2 {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .metric {
+            background: linear-gradient(135deg, rgba(188, 19, 254, 0.15), rgba(0, 255, 136, 0.08));
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .metric:hover {
+            transform: translateY(-8px);
+            border-color: rgba(188, 19, 254, 0.5);
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+        }
+
+        .metric-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: #00ff88;
+            font-weight: 900;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+        }
+
+        .section-header {
+            font-family: 'Orbitron', monospace;
+            color: var(--green);
+            margin: 40px 0 20px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .status-content {
+                padding: 30px 15px;
+            }
+
+            .status-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px;
+            }
+
+            .diagnostics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .status-content {
+                padding: 20px 10px;
+            }
+
+            .status-banner {
+                padding: 20px;
+            }
+
+            .status-banner h2 {
+                font-size: 1rem;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 class="logo">📊 AVUIX</h1>
         <nav>
-            <a href="../index.html">🏠 HOME</a>
-            <a href="hub.html">🎮 GAMES</a>
-            <a href="proxies.html">🌐 PROXIES</a>
             <div class="dropdown">
-                <span class="dropbtn">📋 MORE ▾</span>
+                <span class="dropbtn">🏠 HOME ▾</span>
                 <div class="dropdown-content">
+                    <a href="../index.html">🏠 MAIN</a>
                     <a href="about.html">📜 ABOUT</a>
                     <a href="status.html" style="color: white; text-shadow: 0 0 10px var(--purple);">📊 STATUS</a>
                     <a href="privacy-policy.html">🔐 PRIVACY</a>
                 </div>
             </div>
+            <a href="hub.html">🎮 GAMES</a>
+            <a href="proxies.html">👾 PROXIES</a>
         </nav>
     </header>
 
@@ -49,34 +238,61 @@
             <div class="status-dot"></div>
             <div>
                 <h2>✓ ALL SYSTEMS OPERATIONAL</h2>
-                <p>Last updated: Now | Uptime: 99.9% | Status: Green</p>
+                <p>Last updated: Live • Uptime: 99.9% • Status: Excellent</p>
             </div>
         </div>
 
-        <h3 style="font-family: 'Orbitron', sans-serif; color: var(--purple); margin: 40px 0 20px 0; letter-spacing: 2px; text-transform: uppercase;">🔧 SERVICE DIAGNOSTICS</h3>
+        <h3 class="section-header">🔧 SERVICE DIAGNOSTICS</h3>
         <div class="diagnostics">
-            <div class="diagnostic-item"><span class="diagnostic-name">🎮 Game Vault</span><span class="diagnostic-status">● ONLINE</span></div>
-            <div class="diagnostic-item"><span class="diagnostic-name">🔌 API Gateway</span><span class="diagnostic-status">● ONLINE</span></div>
-            <div class="diagnostic-item"><span class="diagnostic-name">🗄️ Database</span><span class="diagnostic-status">● ONLINE</span></div>
-            <div class="diagnostic-item"><span class="diagnostic-name">🌐 CDN Network</span><span class="diagnostic-status">● ONLINE</span></div>
-            <div class="diagnostic-item"><span class="diagnostic-name">🔒 Security</span><span class="diagnostic-status">● ACTIVE</span></div>
-            <div class="diagnostic-item"><span class="diagnostic-name">📡 Proxy Layer</span><span class="diagnostic-status">● ONLINE</span></div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">🎮 Game Vault</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ONLINE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">🔌 API Gateway</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ONLINE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">🗄️ Database</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ONLINE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">🌐 CDN Network</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ONLINE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">🔒 Security</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ACTIVE</span>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diagnostic-name">👾 Proxy Layer</span>
+                <span class="diagnostic-status"><div class="mini-dot"></div>ONLINE</span>
+            </div>
         </div>
 
-        <h3 style="font-family: 'Orbitron', sans-serif; color: var(--purple); margin: 40px 0 20px 0; letter-spacing: 2px; text-transform: uppercase;">📈 PERFORMANCE METRICS</h3>
+        <h3 class="section-header">📈 PERFORMANCE METRICS</h3>
         <div class="metrics">
-            <div class="metric"><div class="metric-value">45ms</div><div class="metric-label">Avg Response</div></div>
-            <div class="metric"><div class="metric-value">99.9%</div><div class="metric-label">Uptime SLA</div></div>
-            <div class="metric"><div class="metric-value">400+</div><div class="metric-label">Games Online</div></div>
+            <div class="metric">
+                <div class="metric-value">45ms</div>
+                <div class="metric-label">Avg Response</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">99.9%</div>
+                <div class="metric-label">Uptime SLA</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">1000+</div>
+                <div class="metric-label">Games Online</div>
+            </div>
         </div>
 
-        <div style="text-align: center; margin-top: 60px;">
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
             <a href="../index.html" class="back-btn">← RETURN HOME</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // STATUS_V4.0
+        ALL RIGHTS RESERVED BY AVUIX© 2026
     </footer>
 </body>
 </html>
