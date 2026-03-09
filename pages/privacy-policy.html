@@ -8,54 +8,124 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        .privacy-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .privacy-section { margin-bottom: 40px; animation: fadeIn 0.8s ease both; }
-        .privacy-section h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--purple); letter-spacing: 2px; margin: 0 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid rgba(188, 19, 254, 0.3); text-transform: uppercase; }
-        .privacy-section p, .privacy-section li { color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 0.95rem; }
-        .privacy-section ul { margin: 15px 0; padding-left: 30px; }
-        .privacy-section li { margin-bottom: 10px; }
-        .highlight { background: rgba(188, 19, 254, 0.1); border-left: 4px solid var(--purple); padding: 20px; margin: 20px 0; border-radius: 8px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (max-width: 768px) { .privacy-section h2 { font-size: 1.2rem; } }
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .privacy-section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease both;
+        }
+
+        .privacy-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--purple);
+            letter-spacing: 2px;
+            margin: 0 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(188, 19, 254, 0.3);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .privacy-section p, .privacy-section li {
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .privacy-section ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        .privacy-section li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: rgba(188, 19, 254, 0.12);
+            border-left: 4px solid var(--purple);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight strong {
+            color: var(--green);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .privacy-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .privacy-content {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .privacy-content {
+                padding: 20px 10px;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.1rem;
+            }
+
+            .privacy-section p, .privacy-section li {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 class="logo">🔐 AVUIX</h1>
         <nav>
-            <a href="../index.html">🏠 HOME</a>
-            <a href="hub.html">🎮 GAMES</a>
-            <a href="proxies.html">🌐 PROXIES</a>
             <div class="dropdown">
-                <span class="dropbtn">📋 MORE ▾</span>
+                <span class="dropbtn">🏠 HOME ▾</span>
                 <div class="dropdown-content">
+                    <a href="../index.html">🏠 MAIN</a>
                     <a href="about.html">📜 ABOUT</a>
                     <a href="status.html">📊 STATUS</a>
                     <a href="privacy-policy.html" style="color: white; text-shadow: 0 0 10px var(--purple);">🔐 PRIVACY</a>
                 </div>
             </div>
+            <a href="hub.html">🎮 GAMES</a>
+            <a href="proxies.html">👾 PROXIES</a>
         </nav>
     </header>
 
     <div class="privacy-content">
-        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 30px;">🔐 PRIVACY POLICY</h2>
-        <p style="text-align: center; color: rgba(255,255,255,0.6); font-style: italic;">Last Updated: March 8, 2026</p>
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 30px; border: none; padding-bottom: 0;">🔐 PRIVACY POLICY</h2>
+        <p style="text-align: center; color: rgba(255,255,255,0.6); font-style: italic; margin-bottom: 40px;">Last Updated: March 9, 2026 | Effective Immediately</p>
 
         <div class="privacy-section">
             <h2>1. INFORMATION WE COLLECT</h2>
-            <p><strong>Usage Data:</strong></p>
+            <p><strong style="color: var(--green);">What We DO Collect:</strong></p>
             <ul>
-                <li>Game selections and playtime</li>
+                <li>Game selections and playtime (anonymized)</li>
                 <li>Browser type and version</li>
-                <li>Device information</li>
-                <li>General geographic location (country level only)</li>
+                <li>Device information (not personally identifiable)</li>
+                <li>Country-level location only (never precise)</li>
             </ul>
-            <p><strong>What We DON'T Collect:</strong></p>
+            <p><strong style="color: var(--green);">What We DON'T Collect:</strong></p>
             <ul>
-                <li>Personal identification information (unless voluntarily provided)</li>
-                <li>Detailed location data</li>
+                <li>Personal names, emails, or account information</li>
+                <li>Precise geolocation data</li>
                 <li>Behavioral tracking across the web</li>
                 <li>User content or communications</li>
+                <li>Payment information</li>
             </ul>
         </div>
 
@@ -66,33 +136,35 @@
                 <li>Provide technical support</li>
                 <li>Prevent abuse and security threats</li>
                 <li>Generate anonymized analytics</li>
+                <li>Optimize server infrastructure</li>
             </ul>
         </div>
 
         <div class="privacy-section">
             <h2>3. DATA RETENTION & DELETION</h2>
-            <p>We retain usage data for a maximum of 90 days. After this period, data is automatically purged. You can request deletion at any time with no questions asked.</p>
+            <p>We retain usage data for a maximum of 90 days. After this period, all data is automatically purged. You can request deletion at any time with no questions asked.</p>
         </div>
 
         <div class="privacy-section">
             <h2>4. COOKIES & TRACKING</h2>
-            <p><strong>Essential Cookies Only:</strong></p>
+            <p><strong style="color: var(--green);">Essential Cookies Only:</strong></p>
             <ul>
                 <li>Session management</li>
                 <li>User preferences</li>
-                <li>Security tokens</li>
+                <li>Cookie consent</li>
             </ul>
-            <p><strong>We DO NOT use:</strong></p>
+            <p><strong style="color: var(--green);">We DO NOT use:</strong></p>
             <ul>
                 <li>Third-party advertising trackers</li>
                 <li>Behavioral targeting cookies</li>
                 <li>Analytics services that share data</li>
+                <li>Google Analytics or similar</li>
             </ul>
         </div>
 
         <div class="privacy-section">
             <h2>5. EXTERNAL LINKS & THIRD PARTIES</h2>
-            <p>Our platform links to external proxies. We are NOT responsible for their privacy practices. Review their policies before use.</p>
+            <p>Our platform links to external proxies and games. We are NOT responsible for their privacy practices. We strongly recommend reviewing their policies before use.</p>
         </div>
 
         <div class="privacy-section">
@@ -102,20 +174,21 @@
                 <li>DDoS protection</li>
                 <li>Regular security audits</li>
                 <li>Secure data storage</li>
+                <li>No plaintext passwords</li>
             </ul>
         </div>
 
         <div class="highlight">
-            <strong>❓ QUESTIONS?</strong> Your privacy is paramount. If you have concerns about how we handle data, reach out. We're committed to transparency and accountability.
+            <strong>❓ QUESTIONS?</strong> Your privacy is paramount. If you have concerns about how we handle data, reach out. We're committed to transparency and accountability. This is not a corporate machine—it's a community project for gamers, by gamers.
         </div>
 
-        <div style="text-align: center; margin-top: 60px;">
+        <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
             <a href="../index.html" class="back-btn">← RETURN HOME</a>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 AVUIX TERMINAL // PRIVACY_V4.0
+        ALL RIGHTS RESERVED BY AVUIX© 2026
     </footer>
 </body>
 </html>
