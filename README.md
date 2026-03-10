@@ -4,15 +4,15 @@
 
 ### *Speed. Privacy. No Limits.*
 
-[![Live](https://img.shields.io/badge/Status-LIVE-00ff88?style=for-the-badge&logo=checkmarx&logoColor=white)](https://avuix.io)
-[![Maintained](https://img.shields.io/badge/Maintained-YES-bc13fe?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Avuix/avuix)
-[![Performance](https://img.shields.io/badge/PageSpeed-95%2B-00ff88?style=for-the-badge&logo=googlechrome&logoColor=white)](https://avuix.io)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-bc13fe?style=for-the-badge)](https://avuix.io)
+[![Live](https://img.shields.io/badge/Status-LIVE-00ff88?style=for-the-badge&logo=checkmarx&logoColor=white)](https://avuix.github.io/avuix/)
+[![Maintained](https://img.shields.io/badge/Maintained-YES-bc13fe?style=for-the-badge&logo=github&logoColor=white)](https://avuix.github.io/avuix/)
+[![Performance](https://img.shields.io/badge/PageSpeed-95%2B-00ff88?style=for-the-badge&logo=googlechrome&logoColor=white)](https://avuix.github.io/avuix/)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix/)
 
 | ⚡ 1,300+ Games | 🚀 45ms Response | 💯 99.9% Uptime | 🔒 Zero Tracking |
 |:-:|:-:|:-:|:-:|
 
-**[🎮 PLAY NOW — avuix.io](https://avuix.io)** &nbsp;|&nbsp; **[📊 STATUS](https://avuix.io/pages/status)** &nbsp;|&nbsp; **[🔐 PRIVACY POLICY](https://avuix.io/pages/privacy-policy)**
+**[🎮 PLAY NOW — avuix.github.io](https://avuix.github.io/avuix/)** &nbsp;|&nbsp; **[📊 STATUS](https://avuix.github.io/avuix/pages/status)** &nbsp;|&nbsp; **[🔐 PRIVACY POLICY](https://avuix.github.io/pages/privacy-policy)**
 
 </div>
 
@@ -211,7 +211,7 @@ Contributions are welcome! Here's how to help:
 
 *Built for speed. Built for privacy. Built for you.*
 
-[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix)
+[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix/)
 
 © 2026 AVUIX · All Rights Reserved
 
