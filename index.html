@@ -30,7 +30,6 @@
             margin-top: 4vh;
             text-align: center;
             width: 100%;
-            animation: fadeInDown 0.8s ease;
         }
         .logo {
             font-family: 'Orbitron', monospace;
@@ -39,8 +38,11 @@
             color: white;
             text-shadow: 0 0 20px var(--purple);
             margin: 0 0 25px 0;
-            animation: logoPulse 4s infinite ease-in-out;
             font-weight: 900;
+            will-change: text-shadow;
+        }
+        @media (min-width: 769px) {
+            .logo { animation: logoPulse 4s infinite ease-in-out; }
         }
         nav {
             display: flex;
@@ -52,6 +54,8 @@
             backdrop-filter: blur(15px);
             margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            flex-wrap: wrap;
+            justify-content: center;
         }
         nav a, .dropbtn {
             color: rgba(255,255,255,0.7);
@@ -66,11 +70,13 @@
             background: none;
             text-transform: uppercase;
             font-weight: 600;
+            cursor: pointer;
         }
         nav a:hover, .dropdown:hover .dropbtn {
             color: white;
             background: rgba(188, 19, 254, 0.25);
             text-shadow: 0 0 10px var(--purple);
+            transform: translateY(-2px);
         }
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
@@ -87,6 +93,15 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
         }
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 15px;
+            pointer-events: auto;
+        }
         .dropdown:hover .dropdown-content { display: block; }
         .dropdown-content a {
             display: block;
@@ -96,11 +111,17 @@
             text-decoration: none;
             border-left: 3px solid transparent;
             transition: all 0.2s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
         .dropdown-content a:hover {
             background: rgba(188, 19, 254, 0.3);
             border-left-color: var(--purple);
             padding-left: 28px;
+        }
+        main {
+            width: 100%;
         }
         .hero {
             display: flex;
@@ -118,6 +139,7 @@
             z-index: 10;
             text-align: center;
             max-width: 900px;
+            padding: 0 20px;
         }
         .hero-title {
             font-family: 'Orbitron', monospace;
@@ -152,16 +174,19 @@
             padding: 25px 15px;
             border-radius: 15px;
             transition: all 0.3s ease;
+            will-change: transform;
         }
         .stat:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 40px rgba(188, 19, 254, 0.3);
+            border-color: rgba(188, 19, 254, 0.6);
         }
         .stat-value {
             font-family: 'Orbitron', monospace;
             font-size: 2.2rem;
             color: var(--green);
             font-weight: 900;
+            letter-spacing: 1px;
         }
         .stat-label {
             font-size: 0.75rem;
@@ -188,11 +213,13 @@
             letter-spacing: 3px;
             display: inline-block;
             font-weight: 700;
+            will-change: transform, box-shadow;
         }
         .cta-button:hover {
             background: linear-gradient(135deg, rgba(188, 19, 254, 0.3), rgba(188, 19, 254, 0.2));
             box-shadow: 0 0 80px rgba(188, 19, 254, 0.7);
             transform: translateY(-4px);
+            letter-spacing: 5px;
         }
         .info-grid {
             display: grid;
@@ -210,6 +237,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            will-change: transform;
         }
         .card:hover {
             border-color: rgba(188, 19, 254, 0.6);
@@ -305,19 +333,19 @@
             border-color: var(--purple);
             color: white;
         }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes logoPulse {
-            0%, 100% { text-shadow: 0 0 20px var(--purple); transform: scale(1); }
-            50% { text-shadow: 0 0 40px var(--purple), 0 0 80px rgba(188, 19, 254, 0.4); transform: scale(1.02); }
+            0%, 100% { text-shadow: 0 0 20px var(--purple); }
+            50% { text-shadow: 0 0 40px var(--purple), 0 0 80px rgba(188, 19, 254, 0.4); }
         }
         @media (max-width: 768px) {
             nav { padding: 10px 20px; gap: 5px; }
             nav a, .dropbtn { font-size: 0.65rem; padding: 8px 14px; }
             .hero { min-height: 50vh; gap: 25px; }
+            .hero-content { padding: 0 10px; }
+            .info-grid { gap: 20px; padding: 0 10px; }
+            .card { padding: 30px; }
             .cookie-banner.show { flex-direction: column; align-items: flex-start; }
+            .cookie-btn { flex: 1; width: 100%; }
         }
     </style>
     
