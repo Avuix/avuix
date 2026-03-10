@@ -4,7 +4,7 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### AVUIX on Github is a sleek, low-latency gaming hub built for speed, privacy, and unrestricted access. This repository serves as the front-end architecture for the AVUIX project, featuring a custom-built UI with a glassmorphism aesthetic. AVUIX on Google site while being less professional and clean serves a way higher variety of games as we are a team of 10+ people working in full development yet our Github is just the owner who is me.
+### Welcome to AVUIX, a sophisticated web-based entertainment hub. Featuring an expansive catalog of over 1,300 optimized titles, AVUIX uses custom Java-driven automation to manage one of the largest independent game repositories on GitHub. With a focus on modular architecture and lightning-fast load times, the platform provides a seamless user experience across all devices. Whether you’re here for the archive or the integrated proxy terminals, AVUIX is the definitive standard for browser-based gaming.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
