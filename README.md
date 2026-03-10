@@ -24,8 +24,8 @@
 - **Diagnostic Terminal:** Real-time system status monitoring via `status.html`.
 - **Responsive Design:** Optimized for both desktop "Command Center" views and mobile access.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ## 🫵 Why Choose Us 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ## 🛠️ Tech Stack
 - **HTML5:** Semantic structure for SEO and accessibility.
 - **CSS3:** Advanced variables (`:root`), Flexbox, and Grid layouts.
