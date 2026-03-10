@@ -199,7 +199,7 @@ Contributions are welcome! Here's how to help:
 |---|---|
 | 🐛 Bug Reports | [GitHub Issues](https://github.com/Avuix/avuix/issues) |
 | 💬 Feedback | [GitHub Discussions](https://github.com/Avuix/avuix/discussions) |
-| 🌐 G-PAGES | [avuix.github.io](https://avuix.github.io/avuix/)
+| 🌐 G-PAGES | [avuix.github.io](https://avuix.github.io/avuix/) 
 | 🌐 G-SITE  | [avuix.games](https://www.avuix.games/home)
 | 📡 Platform Status | [avuix.github.io/pages/status](https://avuix.github.io/pages/status) |
 
@@ -211,7 +211,7 @@ Contributions are welcome! Here's how to help:
 
 *Built for speed. Built for privacy. Built for you.*
 
-[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.io)
+[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io)
 
 © 2026 AVUIX · All Rights Reserved
 
