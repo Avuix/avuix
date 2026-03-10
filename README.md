@@ -211,7 +211,7 @@ Contributions are welcome! Here's how to help:
 
 *Built for speed. Built for privacy. Built for you.*
 
-[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io)
+[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix)
 
 © 2026 AVUIX · All Rights Reserved
 
