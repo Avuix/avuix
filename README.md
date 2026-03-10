@@ -199,8 +199,9 @@ Contributions are welcome! Here's how to help:
 |---|---|
 | 🐛 Bug Reports | [GitHub Issues](https://github.com/Avuix/avuix/issues) |
 | 💬 Feedback | [GitHub Discussions](https://github.com/Avuix/avuix/discussions) |
-| 🌐 Website | [avuix.io](https://avuix.io) |
-| 📡 Platform Status | [avuix.io/pages/status](https://avuix.io/pages/status) |
+| 🌐 G-PAGES | [avuix.github.io](https://avuix.github.io/avuix/)
+| 🌐 G-SITE  | [avuix.games](https://www.avuix.games/home)
+| 📡 Platform Status | [avuix.github.io/pages/status](https://avuix.github.io/pages/status) |
 
 ---
 
