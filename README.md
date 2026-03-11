@@ -12,7 +12,7 @@
 | ⚡ 1,300+ Games | 🚀 45ms Response | 💯 99.9% Uptime | 🔒 Zero Tracking |
 |:-:|:-:|:-:|:-:|
 
-**[🎮 PLAY NOW — avuix.github.io](https://avuix.github.io/avuix/)** &nbsp;|&nbsp; **[📊 STATUS](https://avuix.github.io/avuix/pages/status)** &nbsp;|&nbsp; **[🔐 PRIVACY POLICY](https://avuix.github.io/pages/privacy-policy)**
+**[🎮 PLAY NOW — avuix.github.io](https://avuix.github.io/avuix/)** &nbsp;|&nbsp; **[📊 STATUS](https://avuix.github.io/avuix/pages/status)** &nbsp;|&nbsp; **[🔐 PRIVACY POLICY](https://avuix.github.io/avuix/pages/privacy-policy.html)**
 
 </div>
 
@@ -201,7 +201,7 @@ Contributions are welcome! Here's how to help:
 | 💬 Feedback | [GitHub Discussions](https://github.com/Avuix/avuix/discussions) |
 | 🌐 G-PAGES | [avuix.github.io](https://avuix.github.io/avuix/) 
 | 🌐 G-SITE  | [avuix.games](https://www.avuix.games/home)
-| 📡 Platform Status | [avuix.github.io/pages/status](https://avuix.github.io/pages/status) |
+| 📡 Platform Status | [avuix.github.io/pages/status](https://avuix.github.io/avuix/pages/status.html) |
 
 ---
 
