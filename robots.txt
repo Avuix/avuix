@@ -1,1 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /avuix/games/
+Disallow: /avuix/games2/
+Disallow: /avuix/games3/
+Disallow: /avuix/SEO/
 
+Sitemap: https://avuix.github.io/avuix/sitemap.xml

@@ -89,7 +89,7 @@ AVUIX was engineered for maximum PageSpeed performance across all pages. Every o
 avuix/
 ├── index.html              # Homepage — hero section, stats, info cards
 ├── 404.html                # Custom error page with neon aesthetic
-├── CNAME                   # Custom domain config (avuix.io)
+├── CNAME                   # Custom domain config (avuix.io — future)
 │
 ├── pages/
 │   ├── hub.html            # Main game hub — 1,300+ game catalog with lazy loading
@@ -117,19 +117,19 @@ avuix/
 The fastest way to get started is to simply open your browser and navigate to:
 
 ```
-https://avuix.io
+https://avuix.github.io/avuix/
 ```
 
 ### Navigate the Platform
 
 | Page | URL | Description |
 |---|---|---|
-| 🏠 Home | `avuix.io` | Launch terminal — stats, info, and quick access |
-| 🎮 Games | `avuix.io/pages/hub` | Full game catalog — search, browse, and launch |
-| 👾 Proxies | `avuix.io/pages/proxies` | Proxy terminal for extended access |
-| 📜 About | `avuix.io/pages/about` | Learn more about the platform |
-| 📡 Status | `avuix.io/pages/status` | Real-time system health monitoring |
-| 🔐 Privacy | `avuix.io/pages/privacy-policy` | Our zero-tracking privacy commitment |
+| 🏠 Home | `avuix.github.io/avuix/` | Launch terminal — stats, info, and quick access |
+| 🎮 Games | `avuix.github.io/avuix/pages/hub.html` | Full game catalog — search, browse, and launch |
+| 👾 Proxies | `avuix.github.io/avuix/pages/proxies.html` | Proxy terminal for extended access |
+| 📜 About | `avuix.github.io/avuix/pages/about.html` | Learn more about the platform |
+| 📡 Status | `avuix.github.io/avuix/pages/status.html` | Real-time system health monitoring |
+| 🔐 Privacy | `avuix.github.io/avuix/pages/privacy-policy.html` | Our zero-tracking privacy commitment |
 
 ---
 
@@ -211,7 +211,7 @@ Contributions are welcome! Here's how to help:
 
 *Built for speed. Built for privacy. Built for you.*
 
-[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.io-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix/)
+[![Visit AVUIX](https://img.shields.io/badge/🎮%20PLAY%20NOW-avuix.github.io/avuix-bc13fe?style=for-the-badge)](https://avuix.github.io/avuix/)
 
 © 2026 AVUIX · All Rights Reserved
 
